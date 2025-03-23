@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" id="prgstr2">Check its palindrome or not.</h1>
+        <pre>
+            <code>//Check its palindrome or not.
+#include&lt;stdio.h>
+int strrev(char*,char*);
+int strleng(char*);
+int main(){
+    char str[10],str2[10],rev;
+    printf("enter the name:");
+    gets(str);
+    rev=strrev(str,str2);
+    if(rev==1)
+    printf("not palindrme");
+    else
+    printf("palindrome"); 
+}
+int strrev(char *str,char *str2){
+    int i,j=0,len;
+    len=strleng(str);
+    for(i=len-1;i>=0;i--){
+        str2[j]=str[i]; 
+        j++;
+    }
+    str2[j]='\0';
+    i=0;
+    while(str[i]!='\0'&&str2[i]!='\0'){
+    if(str[i]!=str2[i]){
+        return 1;
+    }
+    i++;
+    }
+    }
+int strleng(char *str){
+int i=0;
+while(str[i]!='\0'){
+     i++;
+}
+return (i);
+}
+</code>
+</pre>
+</div>
+<div class="output">
+    <h1 class="">OUTPUT</h1>
+    <pre>
+        enter the name:RACECAR
+        palindrome
+        
+        enter the name:REVERSE
+        not palindrme
+        </pre>
+        </div>
+        </body>
+        </html>

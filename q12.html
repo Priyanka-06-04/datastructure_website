@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading">Implement the operations of priority queue dynamically in a string array.</h1>
+        <pre>
+        <code>// Priority Queue string
+            #include &lt;stdio.h>
+            #include &lt;stdlib.h>
+            #define n 5
+            struct pri
+            {
+                char data[40];
+                int priority;
+                struct pri *next;
+            };
+            struct pri *nn, *search, *temp;
+            struct pri *front = NULL;
+            
+            void enque()
+            {
+                nn = (struct pri *)malloc(sizeof(struct pri));
+                if (nn == NULL)
+                    printf("Overflow\n");
+            
+                else if (front == NULL)
+                {
+            
+                    printf("enter value to insert:");
+                    scanf("%s", &nn->data);
+                    printf("enter priority of your number:");
+                    scanf("%d", &nn->priority);
+                    nn->next = NULL;
+                    front = nn;
+                }
+            
+                else
+                {
+                    search = front;
+                    printf("enter priority of  your number:");
+                    scanf("%d", &nn->priority);
+            
+                    printf("enter value to insert:");
+                    scanf("%s", &nn->data);
+                    nn->next = NULL;
+            
+                    if (nn->priority &lt; front->priority)
+                    {
+                        nn->next = front;
+                        front = nn;
+                    }
+                    else
+                    {
+                        while (search->next != NULL &&
+                         search->next->priority &lt;= nn->priority)
+                        {
+                            search = search->next;
+                        }
+            
+                        nn->next = search->next;
+                        search->next = nn;
+                    }
+                }
+            }
+            
+            void deque()
+            {
+                if (front == NULL)
+                    printf("Queue is empty!");
+            
+                else
+                {
+                    temp = front;
+                    printf("%s is deleted", front->data);
+                    front = front->next;
+                    free(temp);
+                }
+            }
+            void peek()
+            {
+                if (front == NULL)
+                    printf("Queue is empty!");
+            
+                else
+                {
+                printf("data=%s\n priority= %d\n",front->data, 
+                front->priority);
+                }
+            }
+            void isEmpty()
+            {
+                if (front == NULL)
+                    printf("Queue is empty!");
+                else
+                    printf("Queue is not empty!");
+            }
+            void isFull()
+            {
+                nn=(struct pri *)malloc(sizeof(struct pri));
+                if (nn == NULL)
+                    printf("Queue is full\n");
+                else
+                    printf("Queue is not full\n");
+            }
+            
+            void print()
+            {
+                search = front;
+                if (front == NULL)
+                    printf("Queue is empty!");
+                else
+                {
+                    while (search != NULL)
+                    {
+                        printf("data=%s\n priority= %d\n", 
+                        search->data, 
+                        search->priority);
+                        search = search->next;
+                    }
+                }
+            }
+            
+            int main()
+            {
+                int opt;
+                while (1)
+                {
+                 printf("\npress:\n 1. For enqueue\n 2. For
+                  dequeue\n 3. Exit\n4. To Print\n5. Peek\n
+                  6. Is empty\n7. Is full\n");
+                scanf("%d", &opt);
+            
+                    if (opt == 1)
+                        enque();
+            
+                    else if (opt == 2)
+                        deque();
+            
+                    else if (opt == 3)
+                        break;
+            
+                    else if (opt == 4)
+                        print();
+            
+                    else if (opt == 5)
+                        peek();
+            
+                    else if (opt == 6)
+                        isEmpty();
+            
+                    else if (opt == 7)
+                        isFull();
+            
+                    else
+                        printf(" Invalid option");
+                }
+                return 0;
+            }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>press:
+                1. For enqueue
+                2. For dequeue
+                3. Exit       
+               4. To Print    
+               5. Peek        
+               6. Is empty    
+               7. Is full     
+               1
+               enter value to insert:hello
+               enter priority of your number:1
+               
+               press:
+                1. For enqueue
+                2. For dequeue
+                3. Exit
+               4. To Print
+               5. Peek
+               6. Is empty
+               7. Is full
+               1
+               enter priority of  your number:2
+               enter value to insert:chllo
+               
+               press:
+                1. For enqueue
+                2. For dequeue
+                3. Exit
+               4. To Print
+               5. Peek
+               6. Is empty
+               7. Is full
+               1
+               enter priority of  your number:6
+               enter value to insert:klm
+               
+               press:
+                1. For enqueue
+                2. For dequeue
+                3. Exit
+               4. To Print
+               5. Peek
+               6. Is empty
+               7. Is full
+               4
+               data=hello
+                priority= 1
+               data=chllo
+                priority= 2
+               data=klm
+                priority= 6
+               
+               press:
+                1. For enqueue
+                2. For dequeue
+                3. Exit
+               4. To Print
+               5. Peek
+               6. Is empty
+               7. Is full
+               5
+               data=hello
+                priority= 1
+               
+               press:
+                1. For enqueue
+                2. For dequeue
+                3. Exit
+               4. To Print
+               5. Peek
+               6. Is empty
+               7. Is full
+               2
+               hello is deleted
+               press:
+                1. For enqueue
+                2. For dequeue
+                3. Exit
+               4. To Print
+               5. Peek
+               6. Is empty
+               7. Is full
+               3
+                </pre>
+                
+                </div>
+                </body>
+                </html>

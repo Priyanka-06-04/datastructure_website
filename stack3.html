@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" > Create a stack implementing the operations on an integer array(dynamically)(push,pop,peek,isempty,isfull)</h1>
+        <pre>
+        <code>#include&lt;stdio.h>
+            #include&lt;conio.h>
+            #include&lt;stdlib.h>
+            struct node{
+                int data;
+                struct node *next;
+            };
+            struct node *start,*nn,*temp;
+            int push(int value){
+                if(start==NULL){
+                start=(struct node*)malloc(sizeof(struct node));
+                start->data=value;
+                start->next=NULL;
+                 }
+                 else{
+                    nn=(struct node*)malloc(sizeof(struct node));
+                    nn->data=value;
+                    nn->next=start;
+                    start=nn;
+                 }
+            }
+            int pop(int value){
+                if(start==NULL)
+                printf("underflow");
+                else{
+                temp=start;
+                value=start->data;
+                start=start->next;
+                free(temp);
+                }
+                return value;
+            }
+            int peek(){
+                printf("%d",start->data);
+            }
+            int isEmpty(){
+                if(start==NULL)
+                printf("underflow");
+                else
+                printf("stack is not empty");
+            }
+            int isFull(){
+                nn=(struct node*)malloc(sizeof(struct node));
+                if(nn==NULL)
+                printf("Overflow");
+                else
+                printf("Stack is not Full");
+            }
+            int show(){
+                temp=start;
+                 printf("stack is.......");
+                while(temp!=NULL){
+                    printf("%d",temp->data);
+                    temp=temp->next;
+                }
+            }
+            
+            void main(){
+                int value,option=0;
+                while(1){
+                printf("Enter your choice ");
+                 printf("\nenter the choice\n1.insert\n2.delete\n3.peek\n
+                 4.isEmpty\n5.isFull\n6.display\n7.exit");
+                option = getche();
+                printf("\n");
+                switch(option){
+                    case'1':
+                             printf("enter the value:");
+                             scanf("%d",&value);
+                              push(value);
+                             printf("value is pushed\n");
+                             break;
+                    case'2':
+                    value=pop(value);
+                    printf("[%d] value is poped\n",value);
+                    break;
+                    case'3':peek();
+                        
+                       break;
+                       case'4':isEmpty();
+                       break;
+                       case'5':isFull();
+                       break;
+                    case'6':show();
+                     break;
+                    case'7': exit(0);
+                    break;
+                }
+            }
+            }
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ ./a
+                Enter your choice
+                enter the choice
+                1.insert
+                2.delete
+                3.peek
+                4.isEmpty
+                5.isFull
+                6.display
+                7.exit1
+                enter the value:13
+                value is pushed   
+                Enter your choice 
+                enter the choice  
+                1.insert
+                2.delete
+                3.peek
+                4.isEmpty
+                5.isFull
+                6.display
+                7.exit1
+                enter the value:26
+                value is pushed
+                Enter your choice
+                enter the choice
+                1.insert
+                2.delete
+                3.peek
+                4.isEmpty
+                5.isFull
+                6.display
+                7.exit6
+                stack is.......2613Enter your choice
+                enter the choice
+                1.insert
+                2.delete
+                3.peek
+                4.isEmpty
+                5.isFull
+                6.display
+                7.exit2
+                [26] value is poped
+                Enter your choice
+                enter the choice
+                1.insert
+                2.delete
+                3.peek
+                4.isEmpty
+                5.isFull
+                6.display
+                7.exit3
+                13Enter your choice
+                enter the choice
+                1.insert
+                2.delete
+                3.peek
+                4.isEmpty
+                5.isFull
+                6.display
+                7.exit6
+                stack is.......13Enter your choice
+                enter the choice
+                1.insert
+                2.delete
+                3.peek
+                4.isEmpty
+                5.isFull
+                6.display
+                7.exit7                
+            </pre>
+                </div>
+                </body>
+                </html>

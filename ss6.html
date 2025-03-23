@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading">Enter a String From the user, enter the character  and perform binary search algorithm through recursion</h1>
+        <pre>
+        <code> #include &lt;stdio.h>
+            int bs(int l, int r, char key, char *arr)
+            {
+                if (l &lt;= r)
+                {
+                    int mid;
+                    mid = ((l + r) / 2);
+                    if (arr[mid] == key)
+                    {
+                        return mid;
+                    }
+                    else if (arr[mid] > key)
+                        return bs(l, mid - 1, key, arr);
+                    else
+                        return bs(mid + 1, r, key, arr);
+                }
+                return -1;
+            }
+            int main()
+            {
+                char arr[10], key;
+                int loc, l = 0, r, size = 0, i = 0;
+                printf("Enter the string:");
+                gets(arr);
+                while (arr[i] != '\0')
+                {
+                    i++;
+                    size++;
+                }
+                r = size - 1;
+                printf("Enter the element you want to search:");
+                scanf("%c", &key);
+                loc = bs(l, r, key, arr);
+                if (loc == -1)
+                    printf("%c not found in the array\n", key);
+                else
+                    printf("%c found at index %d in the array\n", key, loc);
+                return 0;
+                return 0;
+            }
+               
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>Enter the string:apple
+                Enter the element you want to search:p
+                p found at index 2 in the array                
+                </pre>
+                
+                </div>
+                </body>
+                </html>

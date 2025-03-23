@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Implement the tower of hanoi using stacks</h1>
+        <pre>
+        <code>#include&lt;stdio.h>
+            void towerofhanoi(int n,char source,char destination,char helper){
+                if(n==1){
+                    printf("\nMove disk 1 from rod %c to rod %c",source,destination);
+                    return;
+                }
+                towerofhanoi(n-1,source,helper,destination);
+                printf("\nMove disk 1 from rod %c to rod %c",source,destination);
+                towerofhanoi(n-1,helper,destination,source);
+            }
+            int main(){
+                int n=4;
+                towerofhanoi(n,'A','C','B');
+                return 0;
+            }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ gcc stack9.c 
+                
+                Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ ./a
+                
+                Move disk 1 from rod A to rod B
+                Move disk 1 from rod A to rod C
+                Move disk 1 from rod B to rod C
+                Move disk 1 from rod A to rod B
+                Move disk 1 from rod C to rod A
+                Move disk 1 from rod C to rod B
+                Move disk 1 from rod A to rod B
+                Move disk 1 from rod A to rod C
+                Move disk 1 from rod B to rod C
+                Move disk 1 from rod B to rod A
+                Move disk 1 from rod C to rod A
+                Move disk 1 from rod B to rod C
+                Move disk 1 from rod A to rod B
+                Move disk 1 from rod A to rod C
+                Move disk 1 from rod B to rod C
+            </pre>
+                </div>
+                </body>
+                </html>

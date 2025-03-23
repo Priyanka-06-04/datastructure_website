@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading">Enter the string from user and reverse the string in reverse order</h1>
+        <pre>
+            <code>#include&lt;stdio.h>
+                #include&lt;string.h>
+                 char str[10],ch;
+                 int myindex=-1;
+                int push(char ch){
+                     myindex++;
+                     str[myindex]=ch; 
+                     return myindex;  
+                }
+                int pop(){
+                    ch= str[myindex];
+                    myindex--;
+                    return myindex;
+                }
+                
+                void main(){
+                   int i=0;
+                    printf("Enter the name ");
+                  scanf("%s",&str);
+                    while(str[i]>=strlen(str)){
+                         push(str[i]);
+                        i++;
+                    } 
+                    myindex++;
+                while(myindex!=0){
+                    ch=pop();
+                    printf("%c",str[myindex]);
+                }  
+                    
+                }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ gcc strrev.c 
+                
+                Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ ./a
+                Enter the name priyanka
+                aknayirp
+                </pre>
+                
+                </div>
+                </body>
+                </html>

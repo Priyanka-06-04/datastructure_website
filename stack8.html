@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" ></h1>
+        <pre>
+         <code>//sort the stack in asecending order
+            #include&lt;stdio.h>
+             int s1[6],s2[6],top=-1;
+            void push(int value){
+                top++;
+                s1[top]=value;
+            }
+            int pop(){
+                int data =s1[top];
+                top--;
+                return data; 
+            }
+            void main(){
+                int i=0,value,k,sorttop=-1;
+                for(i=0;i&lt;6;i++){
+                printf("Enter the value to be pushed");
+                scanf("%d",&value);
+                push(value);
+                }
+                  while(top!=-1){
+                     k= pop();
+                   while(sorttop!=-1&&s2[sorttop]&lt;k){
+                       push(s2[sorttop]);
+                          sorttop--;
+                   }
+                sorttop++;
+                s2[sorttop]=k;
+            }
+            while(sorttop!=-1){
+              push(s2[sorttop]);
+              sorttop--;   
+            }
+            printf("sorted stack: ");
+            for(i=0;i&lt;=top;i++)
+            printf(" %d ",s1[i]);
+            printf("\n");
+            
+            }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ gcc stack8.c 
+                
+                Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ ./a
+                Enter the value to be pushed23
+                Enter the value to be pushed34
+                Enter the value to be pushed22
+                Enter the value to be pushed55
+                Enter the value to be pushed66
+                Enter the value to be pushed90
+                sorted stack:  22  23  34  55  66  90 
+                </pre>
+                
+                </div>
+                </body>
+                </html>

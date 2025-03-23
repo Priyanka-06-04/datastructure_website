@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Enter the array from user and print the number which is positive.</h1>
+        <pre>
+            <code>
+                #include&lt;stdio.h>
+                void main(){
+                    int arr[5],i;
+                    printf("Enter the numbers");
+                    for(i=0;i&lt;5;i++){
+                        scanf("%d",&arr[i]);
+                    }
+                    printf("Positive numbers:");
+                    for(i=0;i&lt;5;i++){
+                        if(arr[i]>=0)
+                        printf("%d\t",arr[i]);
+                    }
+                
+                }
+                </code>
+                </pre>
+            </div>
+    <div class="output">
+        <h1 class="">OUTPUT</h1>
+        <pre>
+            Enter the numbers89 -89 99 90 -5
+            Positive numbers:89     99      90
+             </pre>
+            </div>
+            </body>
+            </html>

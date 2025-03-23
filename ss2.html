@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" id="prg2">   
+        <h1 class="heading">Linear search through iteration</h1> 
+    <pre>
+        <code>
+             #include&lt;stdio.h>
+             void main(){
+                int arr[10],element,i;
+                printf("enter the elements");
+                for(i=0;i&lt;10;i++){
+                    scanf("%d",&arr[i]);   
+                }
+                
+                printf("enter the element to be search");
+                scanf("%d",&element);
+                for( i=0;i&lt;10;i++){
+                    if(arr[i]==element){
+                        printf("found at %d position",i+1);
+                        break;
+                    }
+                    
+                }
+                if(i==10){
+                    printf("not found");
+                }
+                
+                }
+   </code>
+    </pre>
+</div>
+<div class="output">
+    <h1 class="">OUTPUT</h1>
+    <pre>enter the elements8 9 78 67 56 45 34 45 6 56
+        enter the element to be search45
+        found at 6 position
+        </pre>
+        
+        </div>
+</body>
+</html>

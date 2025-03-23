@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" id="prgstr3">Copy that string into another string</h1>
+        <pre>
+            <code>
+                //copy that string into another string
+                    #include&lt;stdio.h>
+                    int strcp(char*,char*);
+                    int main(){
+                        char str[10],str2[10];
+                        printf("enter the name:");
+                        gets(str);  
+                        strcp(str,str2);
+                        printf("after copying the data in str2");
+                         puts(str2);
+                    
+                    }
+                    int strcp(char *str,char *str2){
+                        int i=0;
+                        while(str[i]!='\0'){
+                            str2[i]=str[i];
+                            i++;  
+                        }
+                        str2[i]='\0';
+                        
+                    }
+                </code>
+                </pre>
+                </div>
+                <div class="output">
+                    <h1 class="">OUTPUT</h1>
+                    <pre>
+                        enter the name:abcdef
+                        after copying the data in str2
+                        abcdef
+                        
+                        </pre>
+                        </div>
+</body>
+</html>

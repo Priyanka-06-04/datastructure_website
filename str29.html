@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" ></h1>
+        <pre>
+        <code>#include &lt;stdio.h>
+            int main() {
+                char str[20];
+                int i=0,j=0,count=0,arr[20];
+               printf("Enter a string:");
+               gets(str);
+              
+              while(str[i]!='\0'){
+                count++;
+                   i++;
+                  
+               }
+              
+               for(i=0;i<count;i++){
+                   arr[i]=str[i];
+               }
+                 
+               printf("Array of ascii values is:");
+                  
+               for(j=0;j<count;j++){
+                  printf("\n%d",arr[j]);
+                     
+               }
+            
+                return 0;
+            }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>Enter a string:abcABC
+                Array of ascii values is:
+                97
+                98
+                99
+                65
+                66
+                67
+                </pre>
+                
+                </div>
+                </body>
+                </html>

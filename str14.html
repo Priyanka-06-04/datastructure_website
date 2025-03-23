@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >2 strings and print difference each character</h1>
+        <pre>
+            <code>//2 strings and print difference each character
+                #include&lt;stdio.h>
+                int strdif(char*,char*);
+                int main(){
+                    char str[10],str2[10];
+                    int dif;
+                    printf("enter the name:");
+                    gets(str);
+                    printf("enter the name:");
+                    gets(str2);
+                    strdif(str,str2);   
+                }
+                int strdif(char *str,char *str2){
+                    int dif,i,rem,sum=0;
+                    for(i=0;str[i]!='\0'||str2[i]!='\0';i++){
+                        dif=str[i]-str2[i];
+                        printf("%d\t",dif);
+                       
+                    }
+                }
+                
+
+               </code>
+               </pre></div>
+               <div class="output">
+                <h1 class="">OUTPUT</h1>
+                <pre>
+                    enter the name:abc
+                    enter the name:ABC
+                    32      32      32
+                    </pre>
+                    </div>
+                    </body>
+                    </html>
+                    

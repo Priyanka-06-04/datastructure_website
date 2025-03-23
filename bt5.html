@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Binary search tree dynamically </h1>
+        <pre>
+        <code>//Binary search tree dynamically 
+
+            #include&lt;stdio.h>
+            #include&lt;stdlib.h>
+            
+            struct tree{
+                int data;
+                struct tree *left;
+                struct tree *right;
+            };
+            struct tree *p,*start,*nn,*search,*prev,*root,*temp;
+            
+            //code to find inoreder successor
+            
+            struct tree* find_minimum(struct tree * root) {
+              while(root -> left != NULL) 
+                  root=root->left;
+              return root;
+            }
+            
+            //Code for insertion
+            
+            void insert(){
+                int value;
+                printf("Enter the value of node which you want to insert:");
+                scanf("%d",&value);
+                if(start==NULL){
+                   start=(struct tree*)malloc(sizeof(struct tree));
+                    start->data=value;
+                    start->left=start->right=NULL;
+                }
+               else{
+                   nn=(struct tree*)malloc(sizeof(struct tree));
+                   nn->data=value;
+                   nn->left=nn->right=NULL;
+                   prev=NULL;
+                   search=start;
+                   
+                   while(search!=NULL){
+                  if(search->data>value){
+                      prev=search;
+                      search=search->left;
+                  }
+                 else if(search->data&lt;value){
+                     prev=search;
+                     search=search->right;
+                 }
+               }
+                  if(prev->data>value){
+                  printf("inserted at left\n");
+                  prev->left=nn;}
+                  if(prev->data&lt;value){
+                  printf("inserted at right\n");
+                  prev->right=nn;
+               }
+                   
+               }
+            }
+            
+            //Code for deletion
+            
+            struct tree* del(struct tree * root, int x) {
+              if (root == NULL)
+                return NULL;
+                else{
+              if (x > root -> data)
+                root -> right = del(root -> right, x);
+              else if (x &lt; root -> data)
+                root -> left = del(root -> left, x);
+              else {
+                //No Child node
+                
+                if (root -> left == NULL && root -> right== NULL) {
+                  free(root);
+                  return NULL;
+                }
+                else if (root -> left == NULL || root -> right == NULL) {
+                  struct node *temp;
+                  if (root -> left == NULL)
+                    temp = root -> right;
+                  else{
+                    temp = root -> left;
+                  free(root);
+                  return temp;}
+                }
+              else {
+                  struct tree *temp = find_minimum(root -> right);
+                  root -> data = temp -> data;
+                  root -> right= del(root -> right, temp -> data);
+                }
+              }}
+              return root;
+            }
+            
+            //       Search..
+            
+             void find(struct tree* root,int x){
+                 if(root->data==x){
+                printf("Value found");
+                 return;
+                 }
+                else if(root->data>x)
+                  find(root->left,x);
+                else
+                  find (root->right,x);
+             }
+            
+            //       Inorder traversal
+            
+            void inorder(struct tree *root) {
+              if (root != NULL) 
+              {
+                inorder(root -> left); 
+                printf(" %d ", root -> data);
+                inorder(root -> right);  
+              }
+            }
+            
+            //      Preorder traversal
+            
+            void preorder(struct tree *root) {
+              if (root != NULL) 
+              {
+                printf(" %d ", root -> data);
+                 preorder(root -> left); 
+                preorder(root -> right);  
+              }
+            }
+            
+            //      Postorder traversal
+            
+            void postorder(struct tree *root) {
+              if (root != NULL) 
+              {
+                 postorder(root -> left); 
+                postorder(root -> right);  
+                printf(" %d ", root -> data);
+              }
+            }
+            
+            
+            int main()
+            {
+            int op,value;
+            while(1){
+                printf("\nEnter 1 option:\n1.Insert\n2.Delete\n3.Search\n4.Exit\n5. Inorder printing\n6. Preorder printing\n7.Postorder printing\n");
+                scanf("%d",&op);
+                
+                    if(op==1) 
+                    insert();
+                     else if(op==2) {
+                    printf("Enter the value to be deleted:");
+                    scanf("%d",&value);
+                    start=del(start,value);
+                         
+                     }
+                   else if(op==3) {
+                 printf("Enter the value to be deleted:");
+                    scanf("%d",&value);
+                   find(start,value);
+                   }
+                   else if(op==4)
+                      break;
+                   
+                    else if(op==5)
+                   inorder(start);
+                   
+                    else if(op==6)
+                   preorder(start);
+                   
+                    else if(op==7)
+                   postorder(start);
+                   
+                   else
+                   printf("Invalid option!");
+                
+            }
+            return 0;
+            }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ ./a
+                
+                Enter 1 option:
+                1.Insert
+                2.Delete
+                3.Search
+                4.Exit
+                5. Inorder printing
+                6. Preorder printing
+                7.Postorder printing
+                1
+                Enter the value of node which you want to insert:3
+                
+                Enter 1 option:
+                1.Insert
+                2.Delete
+                3.Search
+                4.Exit
+                5. Inorder printing
+                6. Preorder printing
+                7.Postorder printing
+                1
+                Enter the value of node which you want to insert:5
+                inserted at right
+                
+                Enter 1 option:
+                1.Insert
+                2.Delete
+                3.Search
+                4.Exit
+                5. Inorder printing
+                6. Preorder printing
+                7.Postorder printing
+                18
+                Invalid option!
+                Enter 1 option:
+                1.Insert
+                2.Delete
+                3.Search
+                4.Exit
+                5. Inorder printing
+                6. Preorder printing
+                7.Postorder printing
+                3
+                Enter the value to be deleted:8
+                Segmentation fault
+                
+                Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ ./a
+                
+                Enter 1 option:
+                1.Insert
+                2.Delete
+                3.Search
+                4.Exit
+                5. Inorder printing
+                6. Preorder printing
+                7.Postorder printing
+                1
+                Enter the value of node which you want to insert:3
+                
+                Enter 1 option:
+                1.Insert
+                2.Delete
+                3.Search
+                4.Exit
+                5. Inorder printing
+                6. Preorder printing
+                7.Postorder printing
+                1
+                Enter the value of node which you want to insert:5
+                inserted at right
+                
+                Enter 1 option:
+                1.Insert
+                2.Delete
+                3.Search
+                4.Exit
+                5. Inorder printing
+                6. Preorder printing
+                7.Postorder printing
+                1
+                Enter the value of node which you want to insert:9
+                inserted at right
+                
+                Enter 1 option:
+                1.Insert
+                2.Delete
+                3.Search
+                4.Exit
+                5. Inorder printing
+                6. Preorder printing
+                7.Postorder printing
+                1
+                Enter the value of node which you want to insert:4
+                inserted at left
+                
+                Enter 1 option:
+                1.Insert
+                2.Delete
+                3.Search
+                4.Exit
+                5. Inorder printing
+                6. Preorder printing
+                7.Postorder printing
+                5
+                 3  4  5  9 
+                Enter 1 option:
+                1.Insert
+                2.Delete
+                3.Search
+                4.Exit
+                5. Inorder printing
+                6. Preorder printing
+                7.Postorder printing
+                6
+                 3  5  4  9 
+                Enter 1 option:
+                1.Insert
+                2.Delete
+                3.Search
+                4.Exit
+                5. Inorder printing
+                6. Preorder printing
+                7.Postorder printing
+                7
+                 4  9  5  3 
+                Enter 1 option:
+                1.Insert
+                2.Delete
+                3.Search
+                4.Exit
+                5. Inorder printing
+                6. Preorder printing
+                7.Postorder printing
+                4
+                </pre>
+                
+                </div>
+                </body>
+                </html>

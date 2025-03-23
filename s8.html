@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading">Enter a Integer Array From the user,perform merge sort algorithm through Recursion</h1>
+        <pre>
+        <code>//merge sort through recursion
+            #include&lt;stdio.h>
+            void mergesort(int[],int,int);
+            void merge(int[],int,int,int);
+            void main(){
+                int arr[20],size,l=0,u,i;
+                printf("Enter the size of Ist array");
+                scanf("%d",&size);
+                u=size;
+                printf("Enter the elements of array");
+                for(i=0;i&lt;size;i++){
+                    scanf("%d",&arr[i]);
+                }
+                mergesort(arr,l,u);
+                printf("sorted array is");
+                 for(i=0;i&lt;size;i++){
+                    printf("%d ",arr[i]);
+                }
+               
+            }
+            void mergesort(int arr[],int l,int u){
+                int mid;
+                if(l&lt;u){
+                mid=((l+u)/2);
+            
+                mergesort(arr,l,mid);
+                mergesort(arr,mid+1,u);
+                merge(arr,l,mid,u);
+                }
+            }
+            void merge(int arr[],int l,int m,int u){
+                int l1=l,l2=m+1,k=l,arr2[10],n,u1=m;
+                while(l1&lt;=u1&&l2&lt;=u){
+                if(arr[l1]>=arr[l2]){
+                    arr2[k]=arr[l2];
+                    l2++;
+                }
+                else{
+                    arr2[k]=arr[l1];
+                    l1++;
+                }
+                k++;
+                }
+                while(l1&lt;=u1){
+                    arr2[k]=arr[l1];
+                    l1++;
+                    k++; 
+                }
+                while(l2&lt;=u){
+                    arr2[k]=arr[l2];
+                    l2++;
+                    k++;
+                }
+                for(n=l;n&lt;=u;n++)
+                arr[n]=arr2[n];
+            }
+            
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>Enter the size of Ist array7
+                Enter the elements of array34 56 34 67 2 5 3 
+                sorted array is2 3 5 34 34 56 67 
+                </pre>
+                
+                </div>
+                </body>
+                </html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Create a program to evaluate the prefix expression</h1>
+        <pre>
+        <code>#include&lt;stdio.h>
+            #include&lt;conio.h>
+            #include&lt;string.h>
+            void infToPos(char[],char[]);
+            char stack[20];
+            int index=-1;
+            int isoperator(char symbol){
+                switch(symbol){
+                    case'+':
+                    case'-':
+                    case'*':
+                    case'/':
+                    case'(':
+                    case')':        
+                            return 1;
+                    default:
+                            return 0;    
+                }
+            }
+            int precedence(char symbol){
+                int p;
+                switch(symbol){
+                    case'*':
+                    case'/':
+                    p=3;
+                    break;
+                    case'+':
+                    case'-':
+                    p=2;
+                    break;
+                    case'(':
+                    case')':
+                    case'#':
+                    p=1;
+                    break;
+                }
+                return p;
+            }
+            int push(char item){
+                 index++;
+                 stack[index]=item;
+            }
+            int pop(){
+                char a;
+                a=stack[index];
+                index--;
+                return a;
+            }
+            void infToPos(char infix[],char postfix[]){
+                int i,symbol,j=0;
+                stack[++index]='#';
+                for(i=0;infix[i]!='\0';i++){
+                    symbol=infix[i];
+                if(isoperator(symbol)==0)
+                {
+                    postfix[j]=symbol;
+                    j++;
+                }
+                else{
+                if(symbol=='(')
+                    push(symbol);
+                else if(symbol==')'){
+                    while(stack[index]!='('){
+                        postfix[j]=pop();
+                        j++;
+                    }
+                    pop();
+                } 
+                else
+                {
+                    if(precedence(symbol)>precedence(stack[index]))
+                    push(symbol);
+                else
+                 {
+                    while(precedence(symbol)&lt;=precedence(stack[index])){
+                        postfix[j]=pop();
+                        j++;
+                    }
+                    push(symbol);
+                 }
+                }
+                }
+                }
+                while(stack[index]!='#'){
+                    postfix[j]=pop();
+                    j++;
+                }
+                postfix[j]='\0';
+            
+            }
+            int evaluate(int op1,int op2,char ch){
+                int n;
+                printf("op1=%d\nop2=%d\noperator=%c\n",op1,op2,ch);
+                switch(ch){
+                    case'+':
+                    n=op1+op2;
+                    break;
+                    case'-':
+                    n=op1-op2;
+                    break;
+                    case'*':
+                    n=op1*op2;
+                    break;
+                    case'/':
+                    n=op1/op2;
+                    break;
+                    default:
+                    printf("not valid opertor");
+                }
+                return n;
+            }
+            int main(){
+                char infix[20],posfix[20],ch;
+                int i=0,op1,op2,n;
+               
+                printf("Enter the infix expression");
+                gets(infix);
+                infToPos(infix,posfix);
+                printf("postfix:");
+                puts(posfix);
+                ch = posfix[i];
+                while(ch!='\0'){
+                    // printf("the char is:%c",ch);
+                    if(isoperator(ch)==0){
+                     n=ch-48;   
+                     push(n);
+                    }
+                    else{
+                    op1=pop();
+                    op2=pop();
+                    n=evaluate(op1,op2,ch);
+                    push(n); 
+                    }
+                    ch=posfix[i++];  
+                }
+                printf("answer:%d",pop());
+            }
+            
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ ./a
+                Enter the infix expression4+5*3
+                postfix:453*+
+                op1=3        
+                op2=5        
+                operator=*   
+                op1=15       
+                op2=4        
+                operator=+
+                answer:19
+                </pre>
+                
+                </div>
+                </body>
+                </html>

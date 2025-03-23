@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Enter a charcter and it is exits or not</h1>
+        <pre>
+            <code>//Enter a charcter and it is exits or not
+                #include<stdio.h>
+                #include<conio.h>
+                int search(char[],int,char);
+                int main(){
+                    char str[10],ch;
+                    int i=0,res;
+                    printf("enter the string: ");
+                    gets(str);
+                    printf("enter the charcter to be found: ");
+                    ch=getche();
+                    res=search(str,10,ch);
+                    if(res==-1)
+                    printf("\nnot found");
+                    else
+                    printf("\nfound");
+                }
+                int search(char str[],int size,char ch){
+                    int i;
+                    while(str[i]!='\0'){
+                        if(str[i]==ch){
+                        return 0;
+                        }
+                        i++;
+                    }
+                    if(str[i]=='\0')
+                    return -1;
+                }
+                
+               </code>
+               </pre></div>
+               <div class="output">
+                <h1 class="">OUTPUT</h1>
+                <pre>
+                    enter the string: ram mohan
+                    enter the charcter to be found: m
+                    found
+                  
+                    enter the string: RAM
+                    enter the charcter to be found: N
+                    not found
+                    </pre>
+                    </div>
+                    </body>
+                    </html>
+                    

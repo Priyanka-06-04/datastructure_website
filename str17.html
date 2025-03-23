@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Convert into integers</h1>
+        <pre>
+            <code>//Convert into integers
+                #include&lt;stdio.h>
+                int strToInt(char *);
+                void main(){
+                    char str[10];
+                    int value;
+                    printf("Enter the string which of integer value");
+                    gets(str);
+                    value=strToInt(str);
+                    if(value==0)
+                    printf("Not able to convert");
+                    else
+                    printf("Intger value is %d",value);
+                }
+                int strToInt(char *str){
+                    int i=0,sum=0;
+                    while(str[i]!='\0'){
+                    if(str[i]&lt;48||str[i]>57){
+                    return 0;
+                }
+                    else{
+                    sum=sum*10+(str[i]-48);
+                    }
+                    i++;
+                    }
+                    return sum;
+                }
+               </code>
+               </pre></div>
+               <div class="output">
+                <h1 class="">OUTPUT</h1>
+                <pre>
+                    Enter the string which of integer value123
+                    Intger value is 123
+                    Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                    $ ./a
+                    Enter the string which of integer valuekl
+                    Not able to convert
+                    </pre>
+                    </div>
+                    </body>
+                    </html>
+                    

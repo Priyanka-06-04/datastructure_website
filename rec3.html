@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" id="prgstr5">Calculate the sum of natural number using Recursio</h1>
+        <pre>
+            <code>//sum of 10 natural numbers
+                #include&lt;stdio.h>
+                int sum(int);
+                int main(){
+                    int n=0;
+                   printf("sum of 10 natural numbers: %d",sum(n));
+                    
+                }
+                int sum(int n){
+                    int add=0;
+                    if(n&lt;=10)
+                    {
+                        add=n+sum(n+1);
+                        n++;
+                    }
+                    return add;
+                }
+                
+                </code></pre>
+                </div>
+                <div class="output">
+                    <h1 class="">OUTPUT</h1>
+                    <pre>
+                        sum of 10 natural numbers: 55
+                        </pre>
+                        </div>
+                        </body>
+                        </html>

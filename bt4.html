@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Maximum depth of binary tree</h1>
+        <pre>
+        <code>//6. Maximum depth of binary tree
+
+            #include&lt;stdio.h>
+            #include&lt;stdlib.h>
+            
+            struct tree{
+                int data;
+                struct tree *left;
+                struct tree *right;
+            };
+            struct tree *start,*nn,*search,*prev,*temp;
+            
+            //Depth of tree
+            
+            int height(struct tree* root){
+                if(root==NULL)
+                   return 0;
+                else{
+                int lheight=height(root->left);
+               int rheight=height(root->right);
+                 
+                 if(lheight>rheight)
+                   return lheight+1;
+                 else
+                   return rheight+1;
+                }
+            }
+            
+            //Code for insertion
+            
+            void insert(){
+                int value;
+                printf("Enter the value of node which you want to insert:");
+                scanf("%d",&value);
+                if(start==NULL){
+                   start=(struct tree*)malloc(sizeof(struct tree));
+                    start->data=value;
+                    start->left=start->right=NULL;
+                }
+               else{
+                   nn=(struct tree*)malloc(sizeof(struct tree));
+                   nn->data=value;
+                   nn->left=nn->right=NULL;
+                   prev=NULL;
+                   search=start;
+                   
+                   while(search!=NULL){
+                  if(search->data>value){
+                      prev=search;
+                      search=search->left;
+                  }
+                 else if(search->data&lt;value){
+                     prev=search;
+                     search=search->right;
+                 }
+               }
+                  if(prev->data>value){
+                  printf("inserted at left\n");
+                  prev->left=nn;}
+                  if(prev->data&lt;value){
+                  printf("inserted at right\n");
+                  prev->right=nn;
+               }
+                   
+               }
+            }
+            //       Inorder traversal
+            
+            void inTraverse(struct tree *root) {
+              if (root != NULL) 
+              {
+                inTraverse(root -> left); 
+                printf(" %d ", root -> data);
+                inTraverse(root -> right);  
+              }
+            }
+            
+            int main()
+            {
+            int op,value,h;
+            while(1){
+                printf("\nEnter 1 option:\n1.Insert\n2.Depth of tree\n3.Exit\n4. Inorder traversal\n");
+                scanf("%d",&op);
+                
+                    if(op==1) 
+                      insert();
+                    else if(op==2) {
+                      h= height(start);
+                  printf("Levels are= %d",h);
+                    }
+                   else if(op==3)
+                      break;
+                   
+                    else if(op==4)
+                   inTraverse(start);
+                   
+                   else
+                   printf("Invalid option!");
+                
+            }
+            return 0;
+            }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ gcc bt6.c 
+                
+                Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ ./a
+                
+                Enter 1 option:     
+                1.Insert
+                2.Depth of tree     
+                3.Exit
+                4. Inorder traversal
+                1
+                Enter the value of node which you want to insert:5
+                
+                Enter 1 option:
+                1.Insert
+                2.Depth of tree
+                3.Exit
+                4. Inorder traversal
+                1
+                Enter the value of node which you want to insert:3
+                inserted at left
+                
+                Enter 1 option:
+                1.Insert
+                2.Depth of tree
+                3.Exit
+                4. Inorder traversal
+                1
+                Enter the value of node which you want to insert:8
+                inserted at right
+                
+                Enter 1 option:
+                1.Insert
+                2.Depth of tree
+                3.Exit
+                4. Inorder traversal
+                1
+                Enter the value of node which you want to insert:10
+                inserted at right
+                
+                Enter 1 option:
+                1.Insert
+                2.Depth of tree
+                3.Exit
+                4. Inorder traversal
+                2
+                Levels are= 3
+                Enter 1 option:
+                1.Insert
+                2.Depth of tree
+                3.Exit
+                4. Inorder traversal
+                4
+                 3  5  8  10 
+                Enter 1 option:
+                1.Insert
+                2.Depth of tree
+                3.Exit
+                4. Inorder traversal
+                3
+                </pre>
+                
+                </div>
+                </body>
+                </html>

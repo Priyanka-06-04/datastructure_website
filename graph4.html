@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Traverse the adjacent list with depth first search.</h1>
+        <pre>
+        <code>#include &lt;stdio.h>
+            #include &lt;stdlib.h>
+            struct edge
+            {
+                int data;
+                struct edge *next2;
+            };
+            int top = -1, stack[10], visited[10];
+            void push(int value)
+            {
+                top++;
+                stack[top] = value;
+            }
+            int pop()
+            {
+                return stack[top--];
+            }
+            struct vertix
+            {
+                int data;
+                struct vertix *next;
+                struct edge *ptr;
+            };
+            struct vertix *start = NULL, *search, *nn, *t, *pre;
+            struct edge *s, *nn2, *pre2;
+            void insertvertex()
+            {
+                if (start == NULL)
+                {
+                    start = (struct vertix *)malloc(sizeof(struct vertix));
+                    printf("Enter the vertex:");
+                    scanf("%d", &(start->data));
+                    start->next = NULL;
+                    start->ptr = NULL;
+                }
+                else
+                {
+                    search = start;
+                    nn = (struct vertix *)malloc(sizeof(struct vertix));
+                    while (search->next != NULL)
+                    {
+                        search = search->next;
+                    }
+                    search->next = nn;
+                    printf("Enter the vertex:");
+                    scanf("%d", &(nn->data));
+                    nn->next = NULL;
+                    nn->ptr = NULL;
+                }
+            }
+            void insertedge()
+            {
+                int src, dest;
+                printf("Enter the source and destination:");
+                scanf("%d %d", &src, &dest);
+                search = start;
+                while (search != NULL)
+                {
+                    if (search->data == src)
+                        break;
+                    search = search->next;
+                }
+                if (search == NULL)
+                {
+                    printf("Entered source is not available");
+                    return;
+                }
+                t = start;
+                while (t != NULL)
+                {
+                    if (t->data == dest)
+                        break;
+                    t = t->next;
+                }
+                if (t == NULL)
+                {
+                    printf("Entered dest is not available");
+                    return;
+                }
+                nn2 = (struct edge *)malloc(sizeof(struct edge));
+                nn2->data = dest;
+                nn2->next2 = NULL;
+                if (search->ptr == NULL)
+                {
+                    search->ptr = nn2;
+                }
+                else
+                {
+                    s = search->ptr;
+                    while (s->next2 != NULL)
+                    {
+                        s = s->next2;
+                    }
+                    s->next2 = nn2;
+                }
+            }
+            void dfs(int sv)
+            {
+                push(sv);
+                visited[sv] = 1;
+                while (top != -1)
+                {
+                    int currentVertex = pop();
+                    printf("%d ", currentVertex);
+                    search = start;
+                    while (search != NULL)
+                    {
+                        if (search->data == currentVertex)
+                        {
+                            break;
+                        }
+                        search = search->next;
+                    }
+                    if (search != NULL)
+                    {
+                        s = search->ptr;
+                        while (s != NULL)
+                        {
+                            if (!visited[s->data])
+                            {
+                                push(s->data);
+                                visited[s->data] = 1;
+                            }
+                            s = s->next2;
+                        }
+                    }
+                }
+            }
+            void print()
+            {
+                search = start;
+            
+                while (search != NULL)
+                {
+                    printf("%d  ", search->data);
+                    s = search->ptr;
+                    while (s != NULL)
+                    {
+                        printf("||%d\t", s->data);
+                        s = s->next2;
+                    }
+                    printf("\n");
+                    search = search->next;
+                }
+            }
+            int main()
+            {
+                int op, sv;
+                while (1)
+                {
+                    printf("Enter 1 choice:\n1.Insert vertix\n2.Insert edge\n3.Depth first search\n4.exit\n");
+                    scanf("%d", &op);
+                    switch (op)
+                    {
+                    case 1:
+                        insertvertex();
+                        break;
+                    case 2:
+                        insertedge();
+                        break;
+                    case 3:
+                        printf("Enter the starting vertex: ");
+                        scanf("%d", &sv);
+                        dfs(sv);
+                        break;
+                    case 4:
+                        exit(0);
+                        break;
+                    default:
+                        printf("Invalid choice\n");
+                    }
+                }
+                return 0;}
+            
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>Enter 1 choice:
+                1.Insert vertix
+                2.Insert edge
+                3.Depth first search
+                4.exit
+                1
+                Enter the vertex:0
+                Enter 1 choice:
+                1.Insert vertix
+                2.Insert edge
+                3.Depth first search
+                4.exit
+                1
+                Enter the vertex:1
+                Enter 1 choice:
+                1.Insert vertix
+                2.Insert edge
+                3.Depth first search
+                4.exit
+                1
+                Enter the vertex:2
+                Enter 1 choice:
+                1.Insert vertix
+                2.Insert edge
+                3.Depth first search
+                4.exit
+                2
+                Enter the source and destination:0
+                1
+                Enter 1 choice:
+                1.Insert vertix
+                2.Insert edge
+                3.Depth first search
+                4.exit
+                Enter 1 choice:
+                1.Insert vertix
+                2.Insert edge
+                3.Depth first search
+                4.exit
+                2
+                Enter the source and destination:1
+                2
+                Enter 1 choice:
+                1.Insert vertix
+                2.Insert edge
+                3.Depth first search
+                4.exit
+                3
+                Enter the starting vertex: 0
+                0 1 2 Enter 1 choice:
+                1.Insert vertix
+                2.Insert edge
+                3.Depth first search
+                4.exit
+                4
+                </pre>
+                
+                </div>
+                </body>
+                </html>

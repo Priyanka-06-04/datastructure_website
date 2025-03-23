@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Enter two matrix from user add the matrices and display the answer</h1>
+        <pre>
+            <code>//Addition of two matrix
+                #include&lt;stdio.h>
+                void main(){
+                int arr[5][5],arr2[5][5],arr3[5][5],i,j,r1,r2,c1,c2;
+                printf("Enter the no. of rows and column for first matrx: ");
+                scanf("%d %d",&r1,&c1);
+                printf("Enter the elemets for first matrix: ");
+                for(i=0;i&lt;r1;i++){
+                for(j=0;j&lt;c1;j++){
+                scanf("%d",&arr[i][j]);
+                        }
+                    }
+                r2=r1;
+                 c2=c1;
+                printf("Enter the elemets for second matrix: ");
+                for(i=0;i&lt;r2;i++){
+                 for(j=0;j&lt;c2;j++){
+                     scanf("%d",&arr2[i][j]);
+                        }
+                    }
+                 if(r1!=r2&&c1!=c2){
+                    printf("Addition is not possible");
+                 }
+                 else{
+                    for(i=0;i&lt;r2;i++){
+                        for(j=0;j&lt;c2;j++){
+                            arr3[i][j]=arr[i][j]+arr2[i][j];
+                            printf("%d ",arr3[i][j]);
+                        }
+                        printf("\n");
+                    }
+                 }    
+                
+                }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ gcc 2darray.c
+                
+                Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ ./a
+                Enter the no. of rows and column for first matrx: 2 2
+                Enter the elemets for first matrix: 2 3 1 3
+                Enter the elemets for second matrix: 2 2 2 2
+                4 5 
+                3 5 
+                
+                </pre>
+                
+                </div>
+                </body>
+                </html>

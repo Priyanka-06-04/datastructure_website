@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" id="prgstr5">Find the smallest element in the integer array using Recursion</h1>
+        <pre>
+            <code>//minimum number in array
+                int min(int arr[],int index);
+                #include&lt;stdio.h>
+                int main(){
+                    int arr[20],i,size;
+                    printf("Enter the size:");
+                    scanf("%d",&size);
+                    printf("Enter the elements");
+                    for(i=0;i&lt;size;i++)
+                    scanf("%d",&arr[i]);
+                    printf("%d",min(arr,size-1));
+                }
+                int min(int arr[],int index){
+                    int small;
+                    if(index==0)
+                    return arr[index];
+                    small=min(arr,index-1);
+                    if(arr[index]<small)
+                    small=arr[index];
+                    return small;
+                }
+                </code></pre>
+                </div>
+                <div class="output">
+                    <h1 class="">OUTPUT</h1>
+                    <pre>
+                        Enter the size:5
+                        Enter the elements1 2 4 78 3
+                        1
+                        </pre>
+                        </div>
+                        </body>
+                        </html>

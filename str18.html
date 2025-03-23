@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Convert into float</h1>
+        <pre>
+        <code>#include&lt;stdio.h>
+            #include&lt;string.h>
+            #include&lt;math.h>
+                void convert(char *string,int digits,int index){
+                float start=0;
+                float num = 0,final;
+                    int n = strlen(string);
+                    for (int i=index+1;string[i]!='\0';i++)
+                    num = num * 10 + (string[i] - 48);
+                    num=num/pow(10,digits);
+                   
+                     for (int i=0;i!=index;i++)
+                    start = start* 10 + (string[i] - 48);
+                    
+                   final=start+num;
+                   printf("final=%f",final);    
+                 
+                   
+                }
+                int main()
+                {
+                char string[10];
+                int digits=0,index;
+                printf("enter the value:")
+                gets(string);
+                for(int i=0;string[i]!='\0';i++){
+                    if(string[i]=='.'){
+                    index=i;
+                    break;}
+                }
+                for(int i=index+1;string[i]!='\0';i++){
+                digits++;
+                }
+                 
+                convert(string,digits,index);
+                return 0;
+                }
+               </code>
+               </pre></div>
+               <div class="output">
+                <h1 class="">OUTPUT</h1>
+                <pre>enter the value:23.56
+                    final=23.559999
+                    </pre>
+                    </div>
+                    </body>
+                    </html>
+                    

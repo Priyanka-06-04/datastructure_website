@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading">Enter a Integer Array From the user, enter the integer value and perform binary search algorithm through iteration.</h1>
+        <pre>
+        <code>
+            #include&lt;stdio.h>
+            void main(){
+                int i,arr[10],key,m,u=10,l=0;
+                printf("enter the elements");
+                for(i=0;i&lt;10;i++){
+                    scanf("%d",&arr[i]);   
+                }
+                printf("enter the element to be searched ");
+                scanf("%d",&key);
+                while(l&lt;=u){
+                    m=(l+u)/2;
+                    if(arr[m]==key){
+                    printf("found at %d",m+1);
+                    break;}
+                    else if(arr[m]&lt;key){
+                        l=m+1;
+                    }
+                    else
+                    u=m-1;
+                }
+                if(key>arr[u])
+                printf("not found");
+            
+            }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>enter the elements3 5 6 4 3 5 67 56 45 34
+                enter the element to be searched 90
+                not found
+                </pre>
+                
+                </div>
+                </body>
+                </html>

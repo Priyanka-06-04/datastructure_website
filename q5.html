@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Implement the operations of  circular queue in a integer array.</h1>
+        <pre>
+            <code>//circular queue
+                #include &lt;stdio.h>   
+                # define max 3 
+                char queue[max];   
+                int front=-1;  
+                int rear=-1;  
+                
+                void enqueue(int element)  
+                {  
+                    if(front==-1 && rear==-1)    
+                    {  
+                        front=0;  
+                        rear=0;  
+                        queue[rear]=element;  
+                    }  
+                    else if((rear+1)%max==front)   
+                    {  
+                        printf("Queue is overflow..");  
+                    }  
+                    else  
+                    {  
+                        rear=(rear+1)%max;       
+                        queue[rear]=element;     
+                    }  
+                }  
+                  
+                  
+                int dequeue()  
+                {  
+                    if((front==-1) && (rear==-1))    
+                    {  
+                        printf("\nQueue is underflow..");  
+                    }  
+                 else if(front==rear)  
+                {  
+                   printf("\nThe dequeued element is %c", queue[front]);  
+                   front=-1;  
+                   rear=-1;  
+                }   
+                else  
+                {  
+                    printf("\nThe dequeued element is %c", queue[front]);  
+                   front=(front+1)%max;  
+                }  
+                }  
+                
+                void display()  
+                {  
+                    int i=front;  
+                    if(front==-1 && rear==-1)  
+                    {  
+                        printf("\n Queue is empty..");  
+                    }  
+                    else  
+                    {  
+                        printf("\nElements in a Queue are :");  
+                        while(i&lt;=rear)  
+                        {  
+                            printf("%c,", queue[i]);  
+                            i=(i+1)%max;  
+                        }  
+                    }  
+                }  
+                int main()  
+                {  
+                    int choice=1;
+                    char x;  
+                      
+                    while(choice&lt;4 && choice!=0)   
+                    {  
+                    printf("\n Press 1: Insert an element");  
+                    printf("\nPress 2: Delete an element");  
+                    printf("\nPress 3: Display the element");  
+                    printf("\nEnter your choice");  
+                    scanf("%d", &choice);  
+                      
+                    switch(choice)  
+                    {   case 1:  
+                        printf("Enter the element which is to be inserted"); 
+                        fflush(stdin); 
+                        scanf("%c",&x);  
+                        enqueue(x);  
+                        break;  
+                        case 2:  
+                        dequeue();  
+                        break;  
+                        case 3:  
+                        display();  
+                  
+                    }}  
+                    return 0;  
+                }  
+                
+               
+                
+                                
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                </pre>
+                
+                </div>
+                </body>
+                </html>

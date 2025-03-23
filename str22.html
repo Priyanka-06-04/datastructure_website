@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Sort the string in ascending order</h1>
+        <pre>
+            <code>//Sort the string in ascending order
+                #include&lt;stdio.h>
+                void main(){
+                    char str[20],min,t;
+                    int i,j,loc;
+                    printf("Enter the string: ");
+                    gets(str);
+                    for(i=0;str[i]!='\0';i++){
+                        min=str[i];
+                        loc=i;
+                        for(j=i+1;str[j]!='\0';j++){
+                        if(min>str[j]){
+                        min=str[j];
+                        loc=j;
+                        }}
+                         t=str[i];
+                         str[i]=str[loc];
+                         str[loc]=t; }
+                        printf("Sorted elements of array: ");
+                        puts(str);
+                    }                
+               </code>
+               </pre></div>
+               <div class="output">
+                <h1 class="">OUTPUT</h1>
+                <pre>
+                    Enter the string: dcbae
+                    Sorted elements of array: abcde
+                    
+                    Enter the string: xyz123
+                    Sorted elements of array: 123xyz
+                    </pre>
+                    </div>
+                    </body>
+                    </html>
+                    

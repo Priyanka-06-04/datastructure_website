@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Count all vowels</h1>
+        <pre>
+            <code>//Count all vowels
+                #include<stdio.h>
+                int main(){
+                    char str[10];
+                    int i=0,count=0;
+                    printf("enter the word ");
+                    gets(str);
+                    while(str[i]!='\0'){
+                         if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u')
+                        count++;
+                        i++;
+                    }
+                    printf("%d",count);
+                }
+               </code>
+               </pre></div>
+               <div class="output">
+                <h1 class="">OUTPUT</h1>
+                <pre>
+                    enter the word aeiou
+                    5
+                    
+                    enter the word ram
+                    1
+                    </pre>
+                    </div>
+                    </body>
+                    </html>
+                    

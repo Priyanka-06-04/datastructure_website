@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" id="prgstr2">Convert into Lowercase Case</h1>
+        <pre>
+            <code>
+                //convert into lowerercase
+                #include&lt;stdio.h>
+                void main(){
+                    char str[20];
+                    int i=0;
+                    printf("Enter the name in Uppercase: ");
+                    gets(str);
+                    for(i=0;str[i]!='\0';i++){
+                         if(str[i]>='A' && str[i]&lt;='Z'){
+                           str[i]=str[i]+32;
+                           }     
+                    } 
+                    printf("After convert into lowercase\n");
+                    printf("%s",str);  
+                }
+            </code>
+        </pre>
+        </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                
+               Enter the name in Uppercase: ALOGRITHM
+               After convert into lowercase
+               alogrithm
+                </pre>
+                </div>
+</body>
+</html>

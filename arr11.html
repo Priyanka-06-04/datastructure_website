@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Enter the array from user and find the duplicate values</h1>
+        <pre>
+            <code>
+                #include&lt;stdio.h>
+                void sort(int[],int);
+                int main(){
+                    int arr[10],i,j,size=6,count;
+                    printf("enter the size of array:");
+                    scanf("%d",&size);
+                    printf("enter the elements:");
+                    for(i=0;i&lt;size;i++){
+                    scanf("%d",&arr[i]);}
+                    sort(arr,size);
+                    printf("The duplicate values are:");
+                    for(i=0;i&lt;size-1;i++){
+                        count=1;
+                         for(j=i+1;j&lt;size;j++){
+                           if(arr[i]==arr[j]){
+                             count++;
+                             }
+                           else
+                              break;  
+                        }
+                        if(count>1){  
+                            printf("%d\t",arr[i]); 
+                            i=i+count-1; 
+                         }
+                    }
+                }
+                void sort(int arr[],int size){
+                    int i,j;
+                    for(i=1;i&lt;5;i++){
+                        int current=arr[i];
+                        j=i-1;
+                        while(arr[j]>current&&j>=0){
+                            arr[j+1]=arr[j];
+                            j--;
+                        }
+                         arr[j+1]=current;
+                    }
+                }
+                </code>
+                </pre>
+            </div>
+    <div class="output">
+        <h1 class="">OUTPUT</h1>
+        <pre>
+            enter the size of array:9
+            enter the elements:4 8 4 8 2 5 7 5 2  
+            The duplicate values are:4      8
+             </pre>
+            </div>
+            </body>
+            </html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Create a stack implementing the operations on an integer array(push,pop,peek,isempty,isfull)</h1>
+    <pre>
+    <code>#include&lt;stdio.h>
+        #include&lt;stdlib.h>
+        #include&lt;conio.h>
+        int push(int[],int,int,int);
+        int pop(int[],int,int);
+        int show(int[],int);
+        int peek(int[],int,int);
+        int isEmpty(int[],int,int);
+        int isFull(int[],int,int);
+        void main(){
+            int size=5,arr[5],value,index=-1,option=0;
+            while(1){
+            printf("Enter your choice ");
+            printf("\nenter the choice\n1.insert\n2.delete\n3.peek\n4.isEmpty
+            \n5.isFull\n6.display\n7.exit");
+            option = getche();
+            printf("\n");
+            switch(option){
+                case'1':
+                         printf("enter the value");
+                         scanf("%d",&value);
+                        index= push(arr,size,value,index);
+                         if(index==-1)
+                         printf("stack overflow\n");
+                         else
+                         printf("value is pushed\n");
+                         break;
+                case'2':
+                index=pop(arr,size,index);
+                if(index==-1)
+                printf("underflow\n");
+                else
+                printf("value is poped\n");
+                break;
+                case'3':index=peek(arr,size,index);
+                   if(index==-1)
+                   printf("Stack is empty");
+                   else
+                   printf("%d",arr[index]);
+                   break;
+                   case'4':isEmpty(arr,size,index);
+                   break;
+                   case'5':isFull(arr,size,index);
+                   break;
+                case'6':show(arr,index);
+                break;
+                case'7': exit(0);
+                break;
+            }
+        }
+        }
+        int push(int arr[],int size,int value,int index){
+                 if(index==size)
+                 return -1;
+                 else
+                 index++;
+                 arr[index]=value;
+                 return index;
+        }
+        int pop(int arr[],int size,int index){
+            if(index==-1)
+            return -1;
+            else
+          printf("%d",arr[index])  ;
+            index--;
+            return index;
+        }
+        int show(int arr[],int index){
+            if(index>=0){
+            for(int i=index;i>=0;i--)
+            printf("%d\n",arr[i]);}
+            else
+            printf("empty");
+        }
+        int peek(int arr[],int size,int index){
+            if(index==-1)
+            return -1;
+            else
+            return index;
+        }
+        int isEmpty(int arr[],int size,int index){
+            if(index==-1)
+            printf("Stack is empty");
+            else
+            printf("Not Empty");
+        }
+        int isFull(int arr[],int size,int index){
+            if(index==size)
+            printf("Stack is full");
+            else
+            printf("Stack is not Full");
+        }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                Enter your choice 
+                enter the choice
+                1.insert        
+                2.delete        
+                3.peek
+                4.isEmpty       
+                5.isFull
+                6.display
+                7.exit1
+                enter the value12
+                value is pushed
+                Enter your choice
+                enter the choice
+                1.insert
+                2.delete
+                3.peek
+                4.isEmpty
+                5.isFull
+                6.display
+                7.exit1
+                enter the value24
+                value is pushed
+                Enter your choice
+                enter the choice
+                1.insert
+                2.delete
+                3.peek
+                4.isEmpty
+                5.isFull
+                6.display
+                7.exit1
+                enter the value36
+                value is pushed
+                Enter your choice
+                enter the choice
+                1.insert
+                2.delete
+                3.peek
+                4.isEmpty
+                5.isFull
+                6.display
+                7.exit6
+                36
+                24
+                12
+                Enter your choice
+                enter the choice
+                1.insert
+                2.delete
+                3.peek
+                4.isEmpty
+                5.isFull
+                6.display
+                7.exit2
+                36value is poped
+                Enter your choice
+                enter the choice
+                1.insert
+                2.delete
+                3.peek
+                4.isEmpty
+                5.isFull
+                6.display
+                7.exit3
+                24Enter your choice
+                enter the choice
+                1.insert
+                2.delete
+                3.peek
+                4.isEmpty
+                5.isFull
+                6.display
+                7.exit7
+                
+                </pre>
+                
+                </div>
+                </body>
+                </html>

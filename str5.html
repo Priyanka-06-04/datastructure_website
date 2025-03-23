@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" id="prgstr5">Find the length of string</h1>
+        <pre>
+            <code>
+                //final length of string
+                #include&lt;stdio.h>
+                int strleng(char*);
+                int main(){
+                    char str[10];
+                    int count;
+                    printf("enter the name:");
+                    gets(str);
+                    count=strleng(str);
+                    printf("%d",count);
+                }
+                int strleng(char *str){
+                int i=0;
+                while(str[i]!='\0'){
+                     i++;
+                }
+                return (i);
+                }
+                
+                
+            </code>
+        </pre>
+        </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+            enter the name:Priyanka
+            8
+            enter the name:omg
+            3
+                
+                </pre>
+                </div>
+</body>
+</html>

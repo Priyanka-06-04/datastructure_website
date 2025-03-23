@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" ></h1>
+        <pre>
+      <code><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Enter an array from user and print all the combination of the elements.</h1>
+        <pre>
+         <code>//possible combination
+            #include&lt;stdio.h>
+            void main(){
+                int i,j,count=0;
+                int a[5];
+                printf("Enter the five elements of an array:");
+                for(i=0;i&lt;5;i++){
+                    scanf("%d",&a[i]);
+                }
+                for(i=0;i&lt;5;i++){
+                    int curr=a[i];
+                    for(j=i+1;j&lt;5;j++){
+                        printf("(%d,%d)",curr,a[j]);
+                        count++;
+                    }
+                    printf("\n");
+                }
+            
+            }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>Enter the five elements of an array:4 8 7 5 7  
+                (4,8)(4,7)(4,5)(4,7)
+                (8,7)(8,5)(8,7)
+                (7,5)(7,7)
+                (5,7)
+                </pre>
+                
+                </div>
+                </body>
+                </html>
+
+         

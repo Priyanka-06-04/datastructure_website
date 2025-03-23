@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Find the airthmetic mean using recursion</h1>
+        <pre>
+            <code>
+                //find the airthmetic mean using recursion
+                #include&lt;stdio.h>
+                float sum(int[],int);
+                int main(){
+                    int n,size,i,arr[20];
+                    printf("Enter the size of array");
+                    scanf("%d",&size);
+                    printf("Enter the elements");
+                    for(i=0;i&lt;size;i++){
+                    scanf("%d",&arr[i]);}
+                    printf("Arithmetic mean of elements: %f",sum(arr,size));   
+                }
+                 float sum(int arr[],int size){
+                     if(size==1)
+                     return arr[size-1];
+                    else
+                     return (arr[size-1]+((size-1)*sum(arr,size-1)))/size;   
+                }
+                </code></pre>
+                </div>
+                <div class="output">
+                    <h1 class="">OUTPUT</h1>
+                    <pre>
+                        Enter the size of array3
+                        Enter the elements2 3 4
+                        Arithmetic mean of elements: 3.000000
+                        </pre>
+                        </div>
+                        </body>
+                        </html>

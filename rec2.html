@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" id="prgstr5">Calculate the fibonacci of number using Recursion</h1>
+        <pre>
+            <code>//Fibonacci series
+                #include&lt;stdio.h>
+                int fib(int);
+                int main(){
+                    int n,i;
+                    printf("Enter the number");
+                    scanf("%d",&n);
+                    printf("Fibonacci series....");
+                    for(i=0;i&lt;n;i++)
+                    printf("%d ",fib(i));
+                }
+                int fib(int n){
+                    if(n==0)
+                    return 0;
+                    if(n==1)
+                    return 1;
+                    else
+                    return (fib(n-1)+fib(n-2));
+                }
+                </code></pre>
+                </div>
+                <div class="output">
+                    <h1 class="">OUTPUT</h1>
+                    <pre>
+                       
+                       Enter the number7
+                       Fibonacci series....0 1 1 2 3 5 8 
+                        </pre>
+                        </div>
+                        </body>
+                        </html>

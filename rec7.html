@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" id="prgstr5">Enter the number from user and add <br>all digits of the number using Recursion</h1>
+        <pre>
+            <code>
+                #include&lt;stdio.h>
+                    int add(int num);
+                    int main(){
+                        int num;
+                        printf("Enter the number");
+                        scanf("%d",&num);
+                        printf("sum of digits in %d is %d",num,add(num));
+                    
+                    }
+                    int add(int num){
+                        if(num!=0)
+                        return (num%10+ add(num/10));
+                        else
+                        return 0;    
+                    }
+                </code></pre>
+                </div>
+                <div class="output">
+                    <h1 class="">OUTPUT</h1>
+                    <pre>
+                        
+                        Enter the number12345
+                        sum of digits in 12345 is 15
+                        </pre>
+                        </div>
+                        </body>
+                        </html>

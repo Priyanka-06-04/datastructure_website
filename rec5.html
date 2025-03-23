@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" id="prgstr5">Find the largest element in the integer array using Recursion</h1>
+        <pre>
+            <code>//maximum number in array
+                #include&lt;stdio.h>
+                int max(int[],int);
+                int main(){
+                    int arr[20],i,size;
+                    printf("Enter the size:");
+                    scanf("%d",&size);
+                    printf("Enter the elements");
+                    for(i=0;i&lt;size;i++)
+                    scanf("%d",&arr[i]);
+                    printf("%d",max(arr,size-1));
+                }
+                int max(int arr[],int index){
+                    int large;
+                    if(index==0)
+                    return arr[index];
+                    large=max(arr,index-1);
+                    if(arr[index]>large)
+                    large=arr[index];
+                    return large;
+                }
+                </code></pre>
+                </div>
+                <div class="output">
+                    <h1 class="">OUTPUT</h1>
+                    <pre>
+                        Enter the size:6
+                        Enter the elements1 2 3 4 5 6
+                        6
+                        Enter the size:8
+                        Enter the elements89 78 67 5 78 90 89 67
+                        90
+                        </pre>
+                        </div>
+                        </body>
+                        </html>

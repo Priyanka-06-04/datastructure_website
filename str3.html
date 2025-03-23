@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" id="prgstr3">Convert into Title Case</h1>
+        <pre>
+            <code>
+                //convert into title case
+                #include&lt;stdio.h>
+                char* strtotitle(char*);
+                int main(){
+                    char str[10];
+                    printf("enter the name:");
+                    gets(str);
+                    strtotitle(str);
+                    printf("%s",str);
+                
+                }
+                 char* strtotitle(char *str){
+                    int i=0;
+                    while(str[i]!='\0'){
+                        if(str[i]>=90&&str[i]&lt;=122){
+                        if(i==0)
+                        str[i]=str[i]-32;
+                        else
+                        str[i]=str[i];
+                        }
+                        i++; 
+                    }  
+                }  
+            </code>
+        </pre>
+        </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                
+                enter the name:delhi   
+                Delhi
+                
+                </pre>
+                </div>
+</body>
+</html>

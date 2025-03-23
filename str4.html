@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="program" target="rightframe">
+        <h1 class="heading" id="prgstr4">Convert into Toggle Case</h1>
+        <pre>
+            <code>
+                //convert into toggle case
+                #include&lt;stdio.h>
+                char strtotoggle(char*);
+                int main(){
+                    char str[10];
+                    printf("enter the name:");
+                    gets(str);
+                    strtotoggle(str);
+                    printf("%s\t",str);
+                    return 0;
+                }
+                char strtotoggle(char* str){
+                    int i=0;
+                    while(str[i]!='\0'){
+                    if(str[i]>='A'&&str[i]&lt;='Z')
+                
+                    str[i]=str[i]+32;
+                    else
+                    str[i]=str[i]-32;
+                   
+                    i++;
+                    }
+                
+                }
+            </code>
+        </pre>
+        </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                enter the name:aLGOrithm
+                AlgoRITHM
+                </pre>
+                </div>
+    
+</body>
+</html>

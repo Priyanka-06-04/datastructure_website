@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Implement the operations of  double ended queue in a integer array.</h1>
+        <pre>
+        <code>//Double ended queue
+            #include&lt;stdio.h>
+            int rear=-1,front=-1;
+            void print(int *arr){
+                int i;
+                for(i=front;i&lt;=rear;i++){
+                    printf("\n%s\t",arr[i]);
+                }
+            }
+            void insertatbeg(int arr[]){
+                char value[10];
+            if(rear==-1 && front==-1){
+                printf("Enter the value to be inserted:");
+                scanf("%d",&value);
+                rear++;
+                front++;
+                arr[rear]=value;
+            }
+            else if(front==0){
+            printf("Queue is full from the beginning\n");
+            }
+            else{
+                 printf("Enter the value to be inserted:");
+                scanf("%d",&value);
+                 front--;
+                arr[front]=value;
+               
+            }
+            
+            }
+            void peek(int arr[]){
+                 if(front==-1&&rear==-1){
+                    printf("Queue is empty\n");
+                }
+                else
+                printf("%d",arr[rear]);
+            }
+            void deleteatlast(int arr[]){
+                if((front==-1 && rear==-1)||front>rear)
+                printf("queue is empty\n");
+                else if(rear==0){
+                    printf("%d is deleted\n",arr[rear]);
+                    front=-1;
+                    rear=-1;
+                }
+                else{
+                    printf("%d is deleted\n",arr[rear]);
+                    rear=rear-1;
+                }
+            }
+            void deletefromfront(int arr[]){
+                if((front==-1&&rear==-1)||front>rear)
+                printf("queue is empty\n");
+                else{
+                printf("%d is deleted\n",arr[front]);
+                front++;
+                }
+            }
+            void insertfromrear(int arr[],int size){
+                int value;
+                printf("size=%d\n",size);
+                
+                 if(rear==size-1){
+            printf("Queue is full\n");
+            }
+            else if(rear==-1 && front==-1){
+                front=0;
+                rear=0;
+                printf("Enter the value to be inserted:");
+                scanf("%d",&value);
+                arr[rear]=value;
+            }
+            
+            else{
+                printf("Enter the value to be inserted:");
+                scanf("%d",&value);
+                rear=rear+1;
+                 printf("rear=%d\n",rear);
+            
+                arr[rear]=value;
+            }
+            }
+            void isEmpty(int arr[]){
+                if(front==-1&&rear==-1){
+                    printf("Queue is empty\n");
+                }
+                else
+                printf("Queue is not empty\n");
+            
+            }
+            void isFull(int *arr,int size){
+            if(front==-1 && rear==size-1){
+            printf("Queue is full\n");
+            }
+            else{
+                printf("Queue is not full");
+            }
+            }
+            int main()
+            {
+                int arr[5],ch;
+                while(1){
+                printf("Choose 1 option:\n1.Insert at beginning
+                \n2.Insert at end\n3.Delete at beginnig\n4.Delete
+                 at end\n5.Peek\n6.Isempty\n7.Isfull\n8.exit\n
+                 9.Print\n");
+                scanf("%d",&ch);
+                switch(ch){
+                    case 1:
+                    insertatbeg(arr);
+                    break;
+                    case 2:
+                    insertfromrear(arr,5);
+                    break;
+                    case 3:
+                    deletefromfront(arr);
+                    break;
+                    case 4:
+                    deleteatlast(arr);
+                    break;
+                    case 5:
+                    peek(arr);
+                    case 6:
+                    isEmpty(arr);
+                    break;
+                    case 7:
+                    isFull(arr,5);
+                    break;
+                    case 8:
+                    exit(0);
+                    break;
+                    case 9:
+                    print(arr);
+                    break;
+                    default:
+                    printf("Invalid option\n");
+                }
+                }
+            
+            return 0;
+            }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>dmin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ ./a
+                Choose 1 option:
+                1.Insert at beginning
+                2.Insert at end
+                3.Delete at beginnig
+                4.Delete at end
+                5.Peek
+                6.Isempty
+                7.Isfull
+                8.exit
+                9.Print
+                1
+                Enter the value to be inserted:12
+                Choose 1 option:
+                1.Insert at beginning
+                2.Insert at end
+                3.Delete at beginnig
+                4.Delete at end
+                5.Peek
+                6.Isempty
+                7.Isfull
+                8.exit
+                9.Print
+                1
+                Queue is full from the beginning
+                Choose 1 option:
+                1.Insert at beginning
+                2.Insert at end
+                3.Delete at beginnig
+                4.Delete at end
+                5.Peek
+                6.Isempty
+                7.Isfull
+                8.exit
+                9.Print
+                24
+                Invalid option
+                Choose 1 option:
+                1.Insert at beginning
+                2.Insert at end
+                3.Delete at beginnig
+                4.Delete at end
+                5.Peek
+                6.Isempty
+                7.Isfull
+                8.exit
+                9.Print
+                2
+                size=5
+                Enter the value to be inserted:36
+                rear=1
+                Choose 1 option:
+                1.Insert at beginning
+                2.Insert at end
+                3.Delete at beginnig
+                4.Delete at end
+                5.Peek
+                6.Isempty
+                7.Isfull
+                8.exit
+                9.Print
+                2
+                size=5
+                Enter the value to be inserted:48
+                rear=2
+                Choose 1 option:
+                1.Insert at beginning
+                2.Insert at end
+                3.Delete at beginnig
+                4.Delete at end
+                5.Peek
+                6.Isempty
+                7.Isfull
+                8.exit
+                9.Print
+                5
+                48Queue is not empty
+                Choose 1 option:
+                1.Insert at beginning
+                2.Insert at end
+                3.Delete at beginnig
+                4.Delete at end
+                5.Peek
+                6.Isempty
+                7.Isfull
+                8.exit
+                9.Print
+                9
+                </pre>
+                
+                </div>
+                </body>
+                </html>

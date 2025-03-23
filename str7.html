@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" id="prgstr3">Concatenate the string</h1>
+        <pre>
+            <code>
+                //concatenate the string
+                 #include&lt;stdio.h>
+                 int strcat(char*,char*,char*);
+                 int main(){
+                     char str[10],str2[10],str3[10];
+                     printf("enter the name:");
+                     gets(str);
+                     printf("enter the second name:");
+                     gets(str2);
+                     strcat(str,str2,str3);
+                    printf("%s",str3);
+       
+                    }
+                int strcat(char *str,char *str2,char *str3){
+                    int len1,len2,i,j=0;
+                    len1=strlen(str);
+                    len2=strlen(str2);
+                    for(i=0;i&lt;len1;i++){
+                        str3[i]=str[i];
+                    }
+                    for(i=len1;i&lt;=(len1+len2);i++){
+                        str3[i]=str2[j];
+                        j++;
+                    }  
+                }
+                int strlen(char *str){
+                int i=0;
+                while(str[i]!='\0'){
+                     i++;
+                }
+                return (i);
+                }
+
+                </code>
+                </pre>
+                </div>
+                <div class="output">
+                    <h1 class="">OUTPUT</h1>
+                    <pre>
+                        enter the name:my name is
+                        enter the second name:......
+                        my name is.......
+                        
+                        </pre>
+                        </div>
+</body>
+</html>

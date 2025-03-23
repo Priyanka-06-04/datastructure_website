@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Implement the operation of single circular linked <br>list storing integers values</h1>
+        <pre>
+     <code>//single circular linked list
+        #include&lt;stdio.h>  
+        #include&lt;stdlib.h>  
+        struct node   
+        {   
+            int data;  
+            struct node *next;   
+        };  
+        struct node *start;  
+        int count;
+          
+        void beginsert ();   
+        void lastinsert ();  
+        void insatloc(int pos); 
+        void begin_delete();  
+        void last_delete(); 
+        void delatloc(int); 
+        void display();  
+        void search();  
+        void main ()  
+        {  
+            int choice =0,loc,count=0;  
+            while(choice != 7)   
+            {  
+                printf("\n*********Main Menu*********\n");  
+                printf("\nChoose one option from the following 
+                list ...\n");   
+                printf("\n1.Insert in begining\n2.Insert at last
+                \n3.Insert at Location\n4.Delete from Beginning\n
+                5.Delete from last\n6.Delete from Location\n
+                7.Search for an element\n8.Show\n9.Exit\n");  
+                printf("\nEnter your choice?\n");         
+                scanf("\n%d",&choice);  
+                switch(choice)  
+                {  
+                    case 1:  
+                    beginsert();      
+                    break;  
+                    case 2:  
+                    lastinsert();         
+                    break;
+                    case 3:
+                            printf("Enter the location where u 
+                            want to insert:");
+                            scanf("%d",&loc);
+                            if(loc&lt;0)
+                            printf("location is out of list range...");
+                            else
+                            insatloc(loc); 
+                            break; 
+                    case 4:  
+                    begin_delete();       
+                    break;  
+                    case 5:  
+                    last_delete();        
+                    break;  
+                    case 6: printf("Enter the location where u
+                     want to insert:");
+                            scanf("%d",&loc);
+                            if(loc&lt;0)
+                            printf("location is out of list range...");
+                            else
+                            delatloc(loc); 
+                            break; 
+                    case 7:  
+                    search();         
+                    break;  
+                    case 8:  
+                    display();        
+                    break;  
+                    case 9:  
+                    exit(0);  
+                    break;  
+                    default:  
+                    printf("Please enter valid choice..");  
+                }  
+            }  
+        }  
+        void beginsert()  
+        {  
+            struct node *nn,*temp;   
+            int item;   
+            nn = (struct node *)malloc(sizeof(struct node));  
+            if(nn== NULL)  
+            {  
+                printf("\nOVERFLOW");  
+            }  
+            else   
+            {  
+                printf("\nEnter the node data?");  
+                scanf("%d",&item);  
+                nn -> data = item;  
+                if(start == NULL)  
+                {  
+                    start = nn;  
+                    nn -> next = start; 
+                    count++; 
+                }  
+                else   
+                {     
+                    temp = start;  
+                    while(temp->next != start)  
+                    temp = temp->next;  
+                    nn->next = start;   
+                    temp -> next = nn;   
+                    start = nn;  
+                    count++;
+                }   
+                printf("\nnode inserted\n");  
+            }  
+                      
+        }  
+        void lastinsert()  
+        {  
+            struct node *nn,*temp;   
+            int item;  
+            nn = (struct node *)malloc(sizeof(struct node));  
+            if(nn == NULL)  
+            {  
+                printf("\nOVERFLOW\n");  
+            }  
+            else  
+            {  
+                printf("\nEnter Data?");  
+                scanf("%d",&item);  
+            nn->data = item;  
+                if(start == NULL)  
+                {  
+                    start = nn;  
+                    nn -> next = start;
+                    count++;    
+                }  
+                else  
+                {  
+                    temp = start;  
+                    while(temp -> next != start)  
+                    {  
+                        temp = temp -> next;  
+                    }  
+                    temp -> next =nn;   
+                    nn -> next = start; 
+                    count++; 
+                }  
+                  
+                printf("\nnode inserted\n");  
+            }  
+          
+        }  
+         void insatloc(int pos){
+            struct node *nn,*search;
+                int i,item;
+                search=start;
+                nn=(struct node*)malloc(sizeof(struct node));
+                printf("\nEnter Data?");  
+                scanf("%d",&item);  
+                nn->data = item;  
+                if(start == NULL)  
+                {  
+                    start = nn;  
+                    nn -> next = start;  
+                    count++;  
+                }  
+                else{
+                for(i=1;i&lt;pos-1;i++){
+                    search=search->next;}
+                    nn->next=search->next;
+                    search->next=nn;
+                    count++;
+        }
+         }
+        void begin_delete()  
+        {  
+            struct node *temp;   
+            if(start == NULL)  
+            {  
+                printf("\nUNDERFLOW");    
+            }  
+            else if(start->next == start)  
+            {  
+                start = NULL;  
+                free(start);  
+                printf("\nnode deleted\n");  
+            }  
+              
+            else  
+            {   temp = start;   
+                while(temp -> next != start)  
+                    temp = temp -> next;   
+                temp->next = start->next;  
+                free(start);  
+                start = temp->next;  
+                printf("\nnode deleted\n");  
+          
+            }  
+        }  
+        void last_delete()  
+        {  
+            struct node *temp, *prenn;  
+            if(start==NULL)  
+            {  
+                printf("\nUNDERFLOW");  
+            }  
+            else if (start ->next == start)  
+            {  
+                start = NULL;  
+                free(start);  
+                printf("\nnode deleted\n");  
+          
+            }  
+            else   
+            {  
+                temp= start;  
+                while(temp ->next != start)  
+                {  
+                    prenn=temp;  
+                    temp = temp->next;  
+                }  
+                prenn->next = temp -> next;  
+                free(temp);  
+                printf("\nnode deleted\n");  
+          
+            }  
+        }  
+        void delatloc(int pos){
+            struct node *search,*temp,*prenn; 
+            search=start;
+            int i=1; 
+            if(start==NULL)  
+            {  
+                printf("\nUNDERFLOW");  
+            }  
+            else{
+                for(i=1;i&lt;pos-1;i++){
+                        search=search->next;
+                    }
+                     printf(" deleted value is : %d",search->data);
+                    temp=search->next;
+                    search->next=temp->next;
+                    free(temp);
+                    count--;
+            }
+            
+        
+        }
+          
+        void search()  
+        {  
+            struct node *nn;  
+            int item,i=0,flag=1;  
+            nn = start;   
+            if(nn == NULL)  
+            {  
+                printf("\nEmpty List\n");  
+            }  
+            else  
+            {   
+                printf("\nEnter item which you want to search?\n");   
+                scanf("%d",&item);  
+                if(start ->data == item)  
+                {  
+                printf("item found at location %d",i+1);  
+                flag=0;  
+                }  
+                else   
+                {  
+                while (nn->next != start)  
+                {  
+                    if(nn->data == item)  
+                    {  
+                        printf("item found at location %d ",i+1);  
+                        flag=0;  
+                        break;  
+                    }   
+                    else  
+                    {  
+                        flag=1;  
+                    }  
+                    i++;  
+                    nn = nn -> next;  
+                }  
+                }  
+                if(flag != 0)
+                {  
+                    printf("Item not found\n");  
+                }  
+            }     
+                  
+        }  
+          
+        void display()  
+        {  
+            struct node *nn;  
+            nn=start;  
+            if(start == NULL)  
+            {  
+                printf("\nnothing to print");  
+            }     
+            else  
+            {  
+                printf("\n printing values ... \n");  
+                  
+                while(nn -> next != start)  
+                {  
+                  
+                    printf("%d\n", nn -> data);  
+                    nn = nn -> next;  
+                }  
+                printf("%d\n", nn -> data);  
+            }  
+                      
+        }  
+        
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                *********Main Menu*********
+                
+                Choose one option from the following list ...
+                
+                1.Insert in begining
+                2.Insert at last
+                3.Insert at Location
+                4.Delete from Beginning
+                5.Delete from last
+                6.Delete from Location
+                7.Search for an element
+                8.Show
+                9.Exit
+                
+                Enter your choice?
+                1
+                
+                Enter the node data?12
+                
+                node inserted
+                
+                *********Main Menu*********
+                
+                Choose one option from the following list ...
+                
+                1.Insert in begining
+                2.Insert at last
+                3.Insert at Location
+                4.Delete from Beginning
+                5.Delete from last
+                6.Delete from Location
+                7.Search for an element
+                8.Show
+                9.Exit
+                
+                Enter your choice?
+                1
+                
+                Enter the node data?24
+                
+                node inserted
+                
+                *********Main Menu*********
+                
+                Choose one option from the following list ...
+                
+                1.Insert in begining
+                2.Insert at last
+                3.Insert at Location
+                4.Delete from Beginning
+                5.Delete from last
+                6.Delete from Location
+                7.Search for an element
+                8.Show
+                9.Exit
+                
+                Enter your choice?
+                3
+                Enter the location where u want to insert:2
+                
+                Enter Data?12
+                
+                *********Main Menu*********
+                
+                Choose one option from the following list ...
+                
+                1.Insert in begining
+                2.Insert at last
+                3.Insert at Location
+                4.Delete from Beginning
+                5.Delete from last
+                6.Delete from Location
+                7.Search for an element
+                8.Show
+                9.Exit
+                
+                Enter your choice?
+                2
+                
+                Enter Data?678
+                
+                node inserted
+                
+                *********Main Menu*********
+                
+                Choose one option from the following list ...
+                
+                1.Insert in begining
+                2.Insert at last
+                3.Insert at Location
+                4.Delete from Beginning
+                5.Delete from last
+                6.Delete from Location
+                7.Search for an element
+                8.Show
+                9.Exit
+                
+                Enter your choice?
+                7
+                
+                Enter item which you want to search?
+                12
+                item found at location 2
+                </pre>
+                
+                </div>
+                </body>
+                </html>

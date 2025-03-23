@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" id="prgstr2">Convert into Sentence Case</h1>
+        <pre>
+            <code>
+                //convert into sentence case
+                #include&lt;stdio.h>
+                char strtosent(char*);
+                int main(){
+                    char str[10];
+                    printf("enter the name:");
+                    gets(str);
+                    strtosent(str);
+                    printf("%s",str);
+                    return 0;
+                }
+                char strtosent(char *str){
+                    int i=0;
+                    while(str[i]!='\0'){
+                        if(i==0&&str[i]>='a'&&str[i]&lt;='z')
+                        str[i]=str[i]-32;
+                        else if(str[i]=='.'){
+                            if(str[i+1]==' ')
+                            str[i+2]=str[i+2]-32;
+                            else
+                             str[i+1]=str[i+1]-32;
+                        }
+                        i++;
+                    }
+                }
+                
+            </code>
+        </pre>
+    </div>
+    <div class="output">
+        <h1 class="">OUTPUT</h1>
+        <pre>
+            enter the name:delhi is capital of india.india has uni.
+            Delhi is capital of india.India has uni.
+            
+            </pre>
+            </div>
+</body>
+</html>

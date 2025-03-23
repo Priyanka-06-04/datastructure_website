@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" ></h1>
+        <pre>
+     <code>//trim the spaces
+        #include<stdio.h>
+        #include<string.h>
+        void trim(char *arr,int size){
+          
+          int start=0,end=size-1,z=0;
+        while(arr[start]==32){
+            start++;
+            z++;
+        }
+        while(arr[end]==32){
+            end--;
+            z++;
+        }
+        arr[end+1]='\0';
+        size=size-z;
+        for(int i=0;i<=size;i++){
+        arr[i]=arr[start];
+        start++;}  
+        puts(arr);
+        
+        }
+        
+        int main()
+        {
+        char str[20];
+        int i=0,size=0;
+        printf("Enter a string:");
+        gets(str);
+        for(int i=0;str[i]!='\0';i++)
+          size++;
+        trim(str,size);
+        
+        
+        return 0;
+        }
+               </code>
+               </pre></div>
+               <div class="output">
+                <h1 class="">OUTPUT</h1>
+                <pre>Enter a string: priyanka  
+                    priyanka
+                    
+                    </pre>
+                    </div>
+                    </body>
+                    </html>
+                    

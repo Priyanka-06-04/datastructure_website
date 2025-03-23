@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" ></h1>
+        <pre>
+        <code>// stack dynamically through string
+            #include &lt;stdio.h>
+            #include &lt;stdlib.h>
+            struct stack
+            {
+                char value;
+                struct stack *next;
+            };
+            struct stack *start, *nn, *t;
+            void push(char value)
+            {
+                if (start == NULL)
+                {
+                    start = (struct stack *)malloc(sizeof(struct stack));
+                    start->value = value;
+                    start->next = NULL;
+                }
+                else
+                {
+                    nn = (struct stack *)malloc(sizeof(struct stack));
+                    nn->value = value;
+                    nn->next = start;
+                    start = nn;
+                }
+            }
+            void pop()
+            {
+                if (start == NULL)
+                    printf("Underflow condition\n");
+                else
+                {
+                    t = start;
+                    start = start->next;
+                    printf("%c\n", t->value);
+                    free(t);
+                }
+            }
+            void peek()
+            {
+                printf("%c is popped\n", start->value);
+            }
+            void isEmpty()
+            {
+                if (start == NULL)
+                    printf("Underflow condition");
+                else
+                    printf("Stack is not empty\n\n");
+            }
+            void isFull()
+            {
+                nn = (struct stack *)malloc(sizeof(struct stack));
+                if (nn = NULL)
+                {
+                    printf("Overflow condition\n");
+                }
+                else
+                    printf("Stack is not full\n");
+            }
+            
+            int main()
+            {
+                int option;
+                char key;
+                while (1)
+                {
+                    printf("Enter your choice:\n1.Push\n2.Pop\n3.Peek\n4.Exit<br>\n4.Isempty\n5.Isfull\n");
+                    scanf("%d", &option);
+                    switch (option)
+                    {
+                    case 1:
+                        printf("Enter the value to be pushed:");
+            
+                        fflush(stdin);
+                        scanf("%c", &key);
+            
+                        push(key);
+                        printf("Value  is pushed\n");
+                        break;
+                    case 2:
+                        pop();
+                        break;
+            
+                    case 3:
+                        peek();
+                        break;
+                    case 4:
+                        exit(0);
+                        break;
+                    case 5:
+                        isEmpty();
+                        break;
+                    case 6:
+                        isFull();
+                        break;
+                    default:
+                        printf("Invalid choice");
+                    }
+                }
+                return 0;
+            
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                </pre>
+                
+                </div>
+                </body>
+                </html>

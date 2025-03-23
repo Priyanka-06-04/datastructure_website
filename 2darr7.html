@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Enter the matrix from user and copy it into another matrix</h1>
+        <pre>
+        <code>#include &lt;stdio.h>
+            void matrix(int arr[3][2], int r, int c)
+            {
+                int i, j;
+            
+                for (i = 0; i &lt; r; i++)
+                {
+                    printf("Enter the elements of %d row:", i + 1);
+                    for (j = 0; j &lt; c; j++)
+                    {
+                        scanf("%d", &(arr[i][j]));
+                    }
+                }
+            }
+            void copy(int arr[3][2],int arr2[3][2],int r,int c){
+                int i,j;
+                for(i=0;i&lt;r;i++){
+                    for(j=0;j&lt;c;j++){
+                         arr2[i][j]=arr[i][j];
+                    }
+                }
+            }
+            int main()
+            {
+                int arr[3][2],arr2[3][2],i,j;
+                int rows = 3, cols = 2;
+                matrix(arr, rows, cols);
+                printf("The copied matrix is:\n");
+                copy(arr,arr2,rows,cols);
+                for (i = 0; i &lt; rows; i++)
+                {
+                    for (j = 0; j &lt; cols; j++)
+                    {
+                        printf("%d\t",arr2[i][j]);
+                    }
+                    printf("\n");
+                }
+                return 0;
+            }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>Enter the elements of 1 row:3 6
+                Enter the elements of 2 row:9 3
+                Enter the elements of 3 row:8 6
+                The copied matrix is:
+                3       6
+                9       3
+                8       6
+                </pre>
+                
+                </div>
+                </body>
+                </html>

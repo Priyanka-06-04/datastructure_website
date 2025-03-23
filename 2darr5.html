@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading">Enter two matrix from user multiply it with scalar value <br>and display the answer</h1>
+        <pre>
+        <code>//Scalar multiplication of matrix
+            #include&lt;stdio.h>
+            void main(){
+                int arr[5][5],arr2[5][5],arr3[5][5],i,j,r1,r2,c1,c2,k;
+                printf("Enter the no. of rows and column for  matrx: ");
+                scanf("%d %d",&r1,&c1);
+                printf("Enter the elemets for matrix: ");
+                for(i=0;i&lt;r1;i++){
+                    for(j=0;j&lt;c1;j++){
+                        scanf("%d",&arr[i][j]);
+                    }
+                }
+                printf("MATRIX IS: \n");
+                for(i=0;i&lt;r1;i++){
+                    for(j=0;j&lt;c1;j++){
+                        printf("%d\t",arr[i][j]);
+                    }
+                    printf("\n");
+                }
+                printf("For scaler multiplication enter the number");
+                scanf("%d",&k);
+                printf("MATRIX of scaler multiplication is: \n");
+                for(i=0;i&lt;r1;i++){
+                    for(j=0;j&lt;c1;j++){
+                        printf("%d\t",k*arr[i][j]);
+                    }
+                    printf("\n");
+                }
+                
+            }
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ gcc 2darray5.c 
+                
+                Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ ./a
+                Enter the no. of rows and column for  matrx: 2 3
+                Enter the elemets for matrix: 2 3 4 2 3 4
+                MATRIX IS:
+                2       3       4
+                2       3       4
+                For scaler multiplication enter the number2
+                MATRIX of scaler multiplication is: 
+                4       6       8
+                4       6       8
+                </pre>
+                
+                </div>
+                </body>
+                </html>

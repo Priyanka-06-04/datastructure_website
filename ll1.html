@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Implement the operation of single linked list storing integers values</h1>
+        <pre>
+        <code>//single linked list
+            #include&lt;stdio.h>
+            #include&lt;stdlib.h>
+            #include&lt;conio.h>
+                struct node{
+                    int data;
+                    struct node*next;
+                };
+                struct node *start=NULL,*nn,*search,*prev,*temp;
+                int count=0;
+                void insatbeg(){
+                    if(start==NULL){
+                        start=(struct node*)malloc(sizeof(struct node));
+                        printf("Enter the data: ");
+                        scanf("%d",&(start->data));
+                        start->next=NULL;
+                        count++;
+                    }
+                    else
+                    {
+                        nn=(struct node*)malloc(sizeof(struct node));
+                        if(nn!=NULL){
+                        printf("Enter the data: ");
+                        scanf("%d",&(nn->data));
+                        nn->next=start;
+                        start=nn;
+                        count++;
+                        }
+                    }
+                }
+                void insatend(){
+                     search=start;
+                    if(start==NULL){
+                        start=(struct node*)malloc(sizeof(struct node));
+                        printf("Enter the data: ");
+                        scanf("%d",&(start->data));
+                        start->next=NULL;
+                        search=start;
+                        count++;
+                    }
+                    else{
+                         while(search->next!=NULL){
+                            search=search->next;
+                         }
+                        nn=(struct node*)malloc(sizeof(struct node));
+                        if(nn!=NULL){
+                        printf("Enter the data: ");
+                        scanf("%d",&(nn->data));
+                        nn->next=NULL;
+                        search->next=nn;
+                        count++;
+                        }
+                    }
+                }
+                void insatloc(int pos){
+                    int i;
+                     if(start==NULL){
+                        start=(struct node*)malloc(sizeof(struct node));
+                        printf("Enter the data: ");
+                        scanf("%d",&(start->data));
+                        start->next=NULL;
+                        count++;
+                    }
+                    else if(pos>count)
+                    printf("Location is out of list range...");
+            else{
+                    nn=(struct node*)malloc(sizeof(struct node));
+                    search=start;
+                    for(i=1;i&lt;pos-1;i++){
+                        search=search->next;
+                    }
+                    printf("Enter the data: ");
+                        scanf("%d",&(nn->data));
+                        nn->next=search->next;
+                        search->next=nn;
+                        count++;
+            }
+                }
+                void delatbeg(){
+                    if(start==NULL){
+                        printf("List is empty...");
+                    }
+                    else if(start->next==NULL)
+                    {   printf("Deleted value is : %d ",start->data);
+                        free(start);
+                    count--;}
+                    else{
+                        search=start;
+                        printf("Deleted value is : %d ",start->data);
+                        start=start->next;
+                        free(search);
+                        count--;
+                    }
+                }
+                void delatend(){
+                    if(start==NULL){
+                        printf("List is empty...");
+                    }
+                    else{
+                    search=start;
+                    while(search->next!=NULL){
+                        prev=search;
+                        search=search->next;
+                    }
+                     printf("Deleted value is : %d ",search->data);
+                    prev->next=NULL;
+                    free(search);
+                    count--;
+                    }
+                }
+                void delatloc(int pos){
+                    int i;
+                    search=start;
+                    if(start==NULL){
+                        printf("List is empty...");
+                    }
+                     else if(pos>count)
+                    printf("Location is out of list range....");
+                    else{
+                        for(i=1;i&lt;pos-1;i++){
+                            search=search->next;
+                        }
+                         printf("Deleted value is : %d",search->data);
+                        temp=search->next;
+                        search->next=temp->next;
+                        free(temp);
+                        count--;
+                    }
+                    
+                }
+                void isempty(){
+                    if(start==NULL)
+                    printf("List is empty.....");
+                }
+                void find(int item){
+                    int n=0;
+                    search=start;
+                    while(search!=NULL){
+                        if(item==search->data){
+                            n=n+1;
+                            printf("%d : element is found",search->data);
+                            break;
+                        }
+                        else
+                        search=search->next;
+                    }
+                    if(n==0)
+                    printf("Not Found");
+            
+                }
+                void print(){
+                    search=start;
+                    while(search!=NULL){
+                        printf("%d\n",search->data);
+                        search=search->next;
+                    }
+                }
+                void main(){
+                    int count=0,loc,ele;
+                    char option;
+                    while(1){
+                        printf("\n1.Insert at begining\n2.Insert at
+                         end\n3.Insert at location\n4.Delete at 
+                         begning\n5.Delete at end\n6.Delete at 
+                         location\n7.Print the list\n8.search\n9.Exit");
+                        printf("\n");
+                        printf("Enter the option:");
+                        option=getche();
+                        printf("\n");
+                        switch(option){
+                        case '1':insatbeg();
+                        break;
+                        case '2':insatend();
+                        break;
+                        case '3':
+                                printf("Enter the location where u want
+                                 to insert:");
+                                scanf("%d",&loc);
+                                insatloc(loc);
+                        break;
+                        case '4':delatbeg();
+                        break;
+                        case '5':delatend();
+                        break;
+                        case '6':
+                                printf("Enter the location which u want 
+                                to delete:");
+                                scanf("%d",&loc);
+                                delatloc(loc);
+                                break;
+                        case '7':print();
+                                break;
+                        case '8': 
+                                printf("Enter the element:");
+                                scanf("%d",&ele);
+                                find(ele);
+                                break;
+                        case '9':exit(0);
+                                break;
+                       }
+                    }
+                }
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                1.Insert at begining
+                2.Insert at end     
+                3.Insert at location
+                4.Delete at begning 
+                5.Delete at end     
+                6.Delete at location
+                7.Print the list
+                8.search
+                9.Exit
+                Enter the option:1
+                Enter the data: 23
+                
+                1.Insert at begining
+                2.Insert at end
+                3.Insert at location
+                4.Delete at begning
+                5.Delete at end
+                6.Delete at location
+                7.Print the list
+                8.search
+                9.Exit
+                Enter the option:1
+                Enter the data: 36
+                
+                1.Insert at begining
+                2.Insert at end
+                3.Insert at location
+                4.Delete at begning
+                5.Delete at end
+                6.Delete at location
+                7.Print the list
+                8.search
+                9.Exit
+                Enter the option:3
+                Enter the location where u want to insert:267
+                Location is out of list range...
+                1.Insert at begining
+                2.Insert at end
+                3.Insert at location
+                4.Delete at begning
+                5.Delete at end
+                6.Delete at location
+                7.Print the list
+                8.search
+                9.Exit
+                Enter the option:3
+                Enter the location where u want to insert:2
+                Enter the data: 567
+                
+                1.Insert at begining
+                2.Insert at end
+                3.Insert at location
+                4.Delete at begning
+                5.Delete at end
+                6.Delete at location
+                7.Print the list
+                8.search
+                9.Exit
+                Enter the option:7
+                36
+                567
+                23
+                
+                1.Insert at begining
+                2.Insert at end
+                3.Insert at location
+                4.Delete at begning
+                5.Delete at end
+                6.Delete at location
+                7.Print the list
+                8.search
+                9.Exit
+                Enter the option:8
+                Enter the element:36
+                36 : element is found
+                1.Insert at begining
+                2.Insert at end
+                3.Insert at location
+                4.Delete at begning
+                5.Delete at end
+                6.Delete at location
+                7.Print the list
+                8.search
+                9.Exit
+                Enter the option:6
+                Enter the location which u want to delete:3
+                Deleted value is : 567
+                1.Insert at begining
+                2.Insert at end
+                3.Insert at location
+                4.Delete at begning
+                5.Delete at end
+                6.Delete at location
+                7.Print the list
+                8.search
+                9.Exit
+                Enter the option:7
+                36
+                567
+                
+                1.Insert at begining
+                2.Insert at end
+                3.Insert at location
+                4.Delete at begning
+                5.Delete at end
+                6.Delete at location
+                7.Print the list
+                8.search
+                9.Exit
+                Enter the option:9
+                </pre>
+                
+                </div>
+                </body>
+                </html>

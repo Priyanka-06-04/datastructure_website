@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading">Merge the two sorted arrays into one array but in sorted array.</h1>
+        <pre>
+            <code>
+                #include&lt;stdio.h>
+                void mergesort(int arr1[],int size1,int arr2[],int size2,int arr3[]){
+                    int i=0,k=0,j=0;
+                    while(i&lt;size1&&j&lt;size2){
+                    if(arr1[i]>arr2[j]){
+                        arr3[k]=arr2[j];
+                        j++;
+                        k++;
+                    }
+                    else{
+                        arr3[k]=arr1[i];
+                        i++;
+                        k++;
+                    }
+                    }
+                    while(i&lt;size1){
+                        arr3[k]=arr1[i];
+                        i++;
+                        k++;
+                    }
+                    while(j&lt;size2){
+                        arr3[k]=arr2[j];
+                        j++;
+                        k++;
+                    }
+                }
+                
+                int main(){
+                    int arr1[10],arr2[10],arr3[10],size1,size2,size3,i;
+                    printf("Enter the size of Ist array");
+                    scanf("%d",&size1);
+                    printf("Enter the sorted elements of Ist array");
+                    for(i=0;i&lt;size1;i++){
+                        scanf("%d",&arr1[i]);
+                    }
+                    printf("Enter the size of IInd array");
+                    scanf("%d",&size2);
+                    printf("Enter the sorted elements of IInd array");
+                    for(i=0;i&lt;size2;i++){
+                        scanf("%d",&arr2[i]);
+                    }
+                    mergesort(arr1,size1,arr2,size2,arr3);
+                    printf("Enter the elements of IIIrd array");
+                    size3=size1+size2;
+                    for(i=0;i&lt;size3;i++){
+                        printf("%d ",arr3[i]);
+                    }
+                }
+                </code>
+                </pre>
+            </div>
+    <div class="output">
+        <h1 class="">OUTPUT</h1>
+        <pre>
+            Enter the size of Ist array5
+            Enter the sorted elements of Ist array1 2 34 45 67
+            Enter the size of IInd array5
+            Enter the sorted elements of IInd array2 45 68 90 345
+            Enter the elements of IIIrd array1 2 2 34 45 45 67 68 90 345 
+             </pre>
+            </div>
+            </body>
+            </html>

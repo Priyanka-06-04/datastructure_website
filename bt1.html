@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Program to construct tree using inorder and preorder traversals</h1>
+        <pre>
+        <code>//Program to construct tree using inorder and preorder traversals
+            #include &lt;stdio.h>
+            #include &lt;stdlib.h>
+            struct node {
+                int data;
+                struct node* left;
+                struct node* right;
+            };
+            int search(int arr[], int strt, int end, int value);
+             struct node* buildTree(int in[], int pre[], int inStrt, int inEnd)
+            {
+                static int preIndex = 0;
+                if (inStrt > inEnd)
+                    return NULL;
+                struct node* tNode = (struct node*)malloc(sizeof(struct node));
+               tNode->data = (pre[preIndex++]);
+                tNode->left = NULL;
+                tNode->right = NULL;
+                
+                if (inStrt == inEnd)
+                    return tNode;
+                int inIndex = search(in, inStrt, inEnd, tNode->data);
+                tNode->left = buildTree(in, pre, inStrt, inIndex - 1);
+                tNode->right = buildTree(in, pre, inIndex + 1, inEnd);
+                return tNode;
+            }
+            int search(int arr[], int strt, int end, int value)
+            {
+                int i;
+                for (i = strt; i &lt;= end; i++) {
+                    if (arr[i] == value)
+                        return i;
+                }
+            }
+            
+            void printInorder(struct node* node)
+            {
+                if (node == NULL)
+                    return;
+                printInorder(node->left);
+                printf("%d\t ", node->data);
+                printInorder(node->right);
+            }
+            int main()
+            {   int i,size;
+                printf("Enter size : ");
+                scanf("%d",&size);
+                int in[size],pre[size];
+                printf("Enter elements of preorder array : \n");
+                for(i=0;i&lt;size;i++){
+                    scanf("%d",&pre[i]);
+                }
+                printf("Enter elements of inorder array : \n");
+                for(i=0;i&lt;size;i++){
+                    scanf("%d",&in[i]);
+                }
+                struct node* root = buildTree(in, pre, 0,size-1);
+                printf("Inorder traversal of the constructed tree is \n");
+                printInorder(root);
+                getchar();
+            }
+            
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre> Enter size : 6
+                 Enter elements of preorder array : 
+                 100
+                 70
+                 20
+                 50
+                 80
+                 75
+                 Enter elements of inorder array : 
+                 20
+                 70
+                 50
+                 100
+                 75
+                 80
+                 Inorder traversal of the constructed tree is 
+                 20	 70	 50	 100	 75	 80
+                </pre>
+                
+                </div>
+                </body>
+                </html>

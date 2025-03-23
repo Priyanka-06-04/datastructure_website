@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading">Enter a Integer Array From the user,perform selection sort algorithm through iteration.</h1>
+        <pre>
+        <code>//selection sort 
+            #include&lt;stdio.h>
+            int main()
+            {
+            int arr[5];
+            printf("Enter 5 elements of the array:");
+            for(int i=0;i&lt;5;i++)
+            scanf("%d",&arr[i]);
+            int min,swap;
+            for(int i=0;i&lt;4;i++){
+                min=i;
+                for(int j=i+1;j&lt;5;j++){
+                    if(arr[min]>arr[j])
+                    min=j;
+                }
+                swap=arr[min];
+                arr[min]=arr[i];
+                arr[i]=swap;
+            }
+            for(int i=0;i&lt;5;i++){
+                printf("%d\t",arr[i]);
+            }
+            return 0;
+            }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>Enter 5 elements of the array:67 56 45 34 90
+                34      45      56      67      90
+                </pre>
+                
+                </div>
+                </body>
+                </html>

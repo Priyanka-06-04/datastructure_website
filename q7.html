@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Implement the operations of  priority queue in a integer array.</h1>
+        <pre>
+        <code>//priority queue
+            #include&lt;stdio.h>
+            #include&lt;stdlib.h>
+            #define n 5
+            int rear=-1,front=-1,search;
+            struct queue{
+                int data;
+                int priority;
+            } p[5];
+            void print(){
+                int i;
+                for(i=front;i&lt;=rear;i++){
+                printf("data=%d\n",p[i].data);
+                printf("priority=%d\n",p[i].priority);
+                }
+            }
+            void enqueue(){
+                int value,priority,i,j,k;
+               if(front==0&&rear==n-1){
+                printf("Queue is full\n");
+               }
+               else if(rear==-1 && front==-1){
+                rear++;
+                front++;
+                printf("Enter the value to be inserted:");
+                scanf("%d",&value);
+                p[rear].data=value;
+                printf("Enter the priority:");
+                scanf("%d",&priority);
+                p[rear].priority=priority;
+            
+               }
+               else{
+                printf("Enter the priority:");
+                scanf("%d",&priority);
+                  if(priority&lt;p[front].priority){
+                  for(j=rear;j>=front;j--){
+                    p[j+1]=p[j];
+                  }
+                   rear++;
+                    printf("Enter the value to be inserted:");
+                scanf("%d",&value);
+                  p[front].data=value;
+                  p[front].priority=priority;
+                  }
+                  else {
+                    for(i=front+1;i&lt;=rear;i++){
+                        if(p[i].priority>priority){
+                            break;
+                        }
+                    }
+                    if(i==rear+1){
+                        rear++;
+                         printf("Enter the value to be inserted:");
+                scanf("%d",&value);
+                        p[rear].data=value;
+                        p[rear].priority=priority;
+                    }
+                    else{
+                        k=i;
+                         printf("Enter the value to be inserted:");
+                scanf("%d",&value);
+                        while(k&lt;=rear){
+                         p[k+1]=p[k];  
+                         k++; 
+                        }rear++;
+                        p[i].data=value;
+                        p[i].priority=priority;
+                    }
+                 
+            
+                }
+            
+               }
+              
+            }
+            void dequeue(){
+                if(front==-1||front>rear){
+                printf("Queue is empty\n");}
+                else
+                {
+                    printf("%d is deleted\n",p[front].data );
+                    front++;
+                }
+            }
+            void isEmpty(){
+                if(front==-1||front>rear){
+                    printf("Queue is empty\n");
+                }
+                else{
+                    printf("Queue is not empty\n");
+                }
+            }
+            void isFull(){
+                if(front==0&&rear==n-1){
+                    printf("Queue is full\n");
+                }
+                else{
+                    printf("Queue is not full\n");
+                }
+            }
+            void peek(){
+               if(front==-1||front>rear){
+                    printf("Queue is empty\n");
+                }
+                else{
+                    printf("%d\n",p[rear].data);
+                } 
+            }
+            int main()
+            {int op,value,em,full;
+            while(1){
+            printf("Enter your choice:\n1.Insert\n2.print\n3.Exit\n4.
+            Dequeue\n5.isEmpty\n6.isFull\n7.Peek\n");
+            scanf("%d",&op);
+            switch(op){
+                case 1:
+                   enqueue();
+                   break;
+                   case 2:
+                   print();
+                   break;
+                   case 3:
+                   exit(0);
+                   case 4:
+                   dequeue();
+                   break;
+                   case 5:
+                   isEmpty();
+                   break;
+                   case 6:
+                   isFull();
+                   break;
+                   case 7:
+                   peek();
+                   break;
+                default:
+                printf("Invalid choice");
+            }
+            }
+            return 0;
+            }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>Enter your choice:
+                1.Insert
+                2.print
+                3.Exit
+                4.Dequeue
+                5.isEmpty
+                6.isFull
+                7.Peek
+                1
+                Enter the value to be inserted:34
+                Enter the priority:34
+                Enter your choice:
+                1.Insert
+                2.print
+                3.Exit
+                4.Dequeue
+                5.isEmpty
+                6.isFull
+                7.Peek
+                1
+                Enter the priority:67
+                Enter the value to be inserted:67
+                Enter your choice:
+                1.Insert
+                2.print
+                3.Exit
+                4.Dequeue
+                5.isEmpty
+                6.isFull
+                7.Peek
+                1
+                Enter the priority:32
+                Enter the value to be inserted:32 
+                Enter your choice:
+                1.Insert
+                2.print
+                3.Exit
+                4.Dequeue
+                5.isEmpty
+                6.isFull
+                7.Peek
+                7
+                67
+                Enter your choice:
+                1.Insert
+                2.print
+                3.Exit
+                4.Dequeue
+                5.isEmpty
+                6.isFull
+                7.Peek
+                2
+                data=32
+                priority=32
+                data=34
+                priority=34
+                data=67
+                priority=67
+                Enter your choice:
+                1.Insert
+                2.print
+                3.Exit
+                4.Dequeue
+                5.isEmpty
+                6.isFull
+                7.Peek
+                4
+                32 is deleted
+                Enter your choice:
+                1.Insert
+                2.print
+                3.Exit
+                4.Dequeue
+                5.isEmpty
+                6.isFull
+                7.Peek
+                2
+                data=34
+                priority=34
+                data=67
+                priority=67
+                Enter your choice:
+                1.Insert
+                2.print
+                3.Exit
+                4.Dequeue
+                5.isEmpty
+                6.isFull
+                7.Peek
+                3
+                </pre>
+                
+                </div>
+                </body>
+                </html>

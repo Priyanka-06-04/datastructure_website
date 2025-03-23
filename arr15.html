@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Enter the array from user and print all the palindrome numbers.</h1>
+        <pre>
+            <code>
+                #include&LT;stdio.h>
+                int main(){
+                    int num[5],num2,rem,rev,sum=0,i;
+                    printf("Enter the five numbers(like 123 89)");
+                    for(i=0;i&lt;5;i++){
+                    scanf("%d",&num[i]);
+                    }
+                    printf("Palindrome numbers:");
+                    for(i=0;i&lt;5;i++){
+                        rev=0;
+                        num2=num[i];
+                    while(num[i]>0){
+                        rem=num[i]%10;
+                        num[i]=num[i]/10;
+                        rev=(rev*10)+rem;
+                    }
+                    if(num2==rev)
+                    printf("%d\t",num2);} 
+                    return 0;
+                }
+                </code>
+                </pre>
+            </div>
+    <div class="output">
+        <h1 class="">OUTPUT</h1>
+        <pre>
+            Enter the five numbers(like 123 89) 131 232 456 456 234
+            Palindrome numbers:131  232
+             </pre>
+            </div>
+            </body>
+            </html>

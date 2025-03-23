@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" id="prgstr5">Calculate the factorial of number using Recursion</h1>
+        <pre>
+            <code>
+                //Factorial of Number
+               #include&lt;stdio.h>
+            int main(){
+                      int n;
+                      printf("Enter the number");
+                      scanf("%d",&n);
+                      printf("The factorial of a number: %d",func(n));
+                  }
+                  int func(int n){
+                     if(n==0)
+                     return 1;
+                     else
+                     return n*func(n-1);
+  
+                  }
+                </code></pre>
+                </div>
+    <div class="output">
+         <h1 class="">OUTPUT</h1>
+             <pre>
+                Enter the number4
+                The factorial of a number: 24
+               
+             </pre>
+         </div>
+                        </body>
+                        </html>

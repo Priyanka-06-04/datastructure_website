@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading">Implement the operations of Simple queue in a integer array.</h1>
+        <pre>
+         <code>//simple queue
+            #include&lt;stdio.h>
+            #include&lt;stdlib.h>
+            #include&lt;conio.h>
+            int insert (int,int,int, int[],int );
+            int delete(int,int,int,int[],int);
+            int is_empty();
+            int peek(int front);
+            int front=-1,rear=-1,arr[10];
+            int main(){
+                int arr[6],front=-1,rear=-1,option,size=6,value,i;
+                while(1){
+                printf("\nEnter the choice\n1.insert\n2.delete\n
+                3.peek\n 4.display\n5.exit");
+                option=getche();
+                switch(option){
+                    case '1':
+                              printf("\nEnter the value:");
+                              scanf("%d",&value);
+                              rear=insert(value,rear,front,arr,size);
+                              if(rear==-1)
+                              printf("overflow");
+                              else
+                              printf("Value is inserted");
+                              break;
+                    case'2':
+                            front=delete( value, rear,front, arr, size);
+                            if(front==-1)
+                            printf("underflow");
+                            else
+                            printf("value is deleted");
+                            break;
+                     
+                  
+                    case '3':
+                            front=peek(front);
+                            if(front==-1&&rear==-1){
+                               printf("queue is empty");
+                            }
+                            else
+                            printf("Top value is %d",arr[rear]);
+                            break;
+            
+                    case '4': for(i=front;i&lt;=rear;i++)
+                        printf("%d\n",arr[i]); 
+                         break;
+                    case'5':
+                            exit(0);
+                            break;
+            }
+            }}
+            int insert(int value,int rear,int front, int arr[],int size)
+                {
+                if(rear==size)
+                return -1;
+                else if(rear==-1){
+                    rear=0;
+                    front=0;
+                }
+                else
+                rear++;
+                arr[rear]=value;
+               // printf("rear=%d",rear);
+                return rear;
+                }
+            int delete(int value,int rear,int front, int arr[],int size){
+                    if(front==-1&&rear==-1){
+                    return -1;}
+                    else if(front==rear){
+                        front=-1;
+                        rear=-1;    
+                    }
+                    else
+                    front++;
+                    value=arr[front];
+                   // printf("\ndeleted value at %d =%d ",front,value); 
+                    return front;
+            
+                }
+                int is_empty(){
+                     if(rear==-1 && front==-1)
+                     return 0;
+                     else 
+                     return 1;
+                }
+                int peek(int front){
+                    int empty=is_empty();
+                        if (empty=0)
+                        return -1;
+                        else
+                        return front;
+            
+                }
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ gcc q1.c
+                
+                Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ ./a
+                
+                Enter the choice
+                1.insert        
+                2.delete        
+                3.peek
+                 4.display      
+                5.exit1
+                Enter the value:
+                23
+                Value is inserted
+                Enter the choice
+                1.insert
+                2.delete
+                3.peek
+                 4.display
+                5.exit1
+                Enter the value:46
+                Value is inserted
+                Enter the choice
+                1.insert
+                2.delete
+                3.peek
+                 4.display
+                5.exit1
+                Enter the value:152
+                Value is inserted
+                Enter the choice
+                1.insert
+                2.delete
+                3.peek
+                 4.display
+                5.exit2value is deleted
+                Enter the choice
+                1.insert
+                2.delete
+                3.peek
+                 4.display
+                5.exit3Top value is 152
+                Enter the choice
+                1.insert
+                2.delete
+                3.peek
+                 4.display
+                5.exit423
+                46
+                152
+                
+                Enter the choice
+                1.insert
+                2.delete
+                3.peek
+                 4.display
+                5.exit5
+                </pre>
+                
+                </div>
+                </body>
+                </html>

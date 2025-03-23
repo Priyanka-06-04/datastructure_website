@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading">Find the local minima in array</h1>
+        <pre>
+            <code>#include&lt;stdio.h>
+                int main(){
+                    int size,arr[10],l,u,i;
+                    printf("Enter the size of array: ");
+                    scanf("%d",&size);
+                    printf("Enter the elements ");
+                    for(i=0;i&lt;size;i++){
+                        scanf("\t%d",&arr[i]);
+                    }
+                    printf("Local minima numbers in array: \n");
+                    for(i=1;i&lt;size-1;i++){
+                     l=arr[i-1];
+                     u=arr[i+1];
+                     if(arr[i]&lt;l && arr[i]&lt;u)
+                     printf("%d\t",arr[i]);
+                    }
+                }
+                </code>
+                </pre>
+                </div>
+                <div class="output">
+                    <h1 class="">OUTPUT</h1>
+                    <pre>
+                        Enter the size of array: 6
+                        Enter the elements 10 1 10 2 5 7
+                        Local minima numbers in array: 
+                        1       2
+                        </pre>
+                        </div>
+                        </body>
+                        </html>

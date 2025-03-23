@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" id="prgstr2">Enter Bound number and print character on that bound</h1>
+        <pre>
+            <code>
+// Enter Bound number and print character on that bound
+#include<stdio.h>
+#include<conio.h>
+int strleng(char*);
+int strbou(char*,int);
+int main(){
+    int bound;
+    char str[10];
+     printf("Enter the name:");
+    gets(str);
+    printf("Enter the bound no. : ");
+    scanf("%d",&bound);
+    strbou(str,bound);
+    printf(" \n Enter the name after editting: ");
+    puts(str);
+
+   
+}
+int strbou( char* str,int bound){
+    char ch;
+    int len; 
+    len=strleng(str);
+    if(bound>len)
+    printf("Not possible");
+    else
+    printf("Enter the character:");
+    ch=getche();
+    str[bound]=ch;
+}
+int strleng(char *str){
+int i=0;
+while(str[i]!='\0'){
+     i++;
+}
+return (i);
+}
+</code>
+</pre>
+</div>
+<div class="output">
+    <h1 class="">OUTPUT</h1>
+    <pre>
+        
+       Enter the name:abcdef
+       Enter the bound no. : 4
+       Enter the character:m
+       Enter the name after editting: abcdmf
+        </pre>
+        </div>
+        </body>
+        </html>

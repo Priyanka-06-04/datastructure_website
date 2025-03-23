@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Enter two arrays from the user and check they are same or not</h1>
+        <pre>
+            <code>
+                #include&lt;stdio.h>
+                int main(){
+                    int arr[5],arr2[5],i;
+                    printf("Enter the five elements of first array");
+                    for(i=0;i&lt;5;i++)
+                    scanf("%d",&arr[i]);
+                    printf("Enter the five elements of second array");
+                    for(i=0;i&lt;5;i++)
+                    scanf("%d",&arr2[i]);
+                    for(i=0;i&lt;5;i++){
+                    if(arr[i]!=arr2[i]){
+                        printf("Both array are not same");
+                        break;}   
+                    }
+                    if(i==5)
+                    printf("Both arry are same");
+                }
+                </code>
+                </pre>
+            </div>
+    <div class="output">
+        <h1 class="">OUTPUT</h1>
+        <pre>
+            Enter the five elements of first array2 4 6 7 4
+            Enter the five elements of second array4 7 2 5 6
+            Both array are not same
+            Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+            $ ./a
+            Enter the five elements of first array7 8 9 6 5
+            Enter the five elements of second array7 8 9 6 5
+            Both arry are same
+             </pre>
+            </div>
+            </body>
+            </html>

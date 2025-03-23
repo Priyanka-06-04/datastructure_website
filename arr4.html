@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Enter the array from user copy it into second array in reverse order</h1>
+        <pre>
+            <code>
+                #include&lt;stdio.h>
+                void main(){
+                int i,arr[5],copy[5];
+                printf("enter the 5 elements");
+                for(i=0;i&lt;5;i++){
+                scanf("%d",&arr[i]);
+                copy[i]=arr[i];}
+                printf("copied array from first and reverse\n");
+                for(i=4;i>=0;i--)
+                printf("%d\t",copy[i]);
+                }
+                
+                </code>
+                </pre>
+            </div>
+    <div class="output">
+        <h1 class="">OUTPUT</h1>
+        <pre>
+            enter the 5 elements78 45 78 23 9
+            copied array from first and reverse
+            9       23      78      45      78 
+             </pre>
+            </div>
+            </body>
+            </html>

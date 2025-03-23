@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" ></h1>
+        <pre>
+        <code>//polynomail expression and multiply them
+            #include<stdio.h>
+            #include<stdlib.h>
+            struct term{
+                int coeff;
+                int exp;
+                struct term *link;
+            };
+            typedef struct term term;
+            struct term* insert(term* poly,int coe,int ex){
+                struct term *nn,*temp;
+                nn= (struct term*)malloc(sizeof(struct term));
+                nn->coeff=coe;
+                nn->exp=ex;
+                if(poly==NULL||ex>poly->exp){
+                    nn->link=poly;
+                    poly=nn;
+                }
+                else{
+                    temp=poly;
+                    while(temp->link!=NULL&&temp->link->exp>=ex){
+                        temp=temp->link;
+                    }
+                    nn->link=temp->link;
+                    temp->link=nn;
+                }
+                return poly;
+            }
+            void print(struct term *poly){
+                struct term *nn,*temp;
+                if(poly==NULL)
+                printf("No polynomail exist");
+                else{
+                    temp=poly;
+                    while(temp->link!=NULL){
+                    printf("%dx^%d",temp->coeff,temp->exp);
+                    temp=temp->link;
+                    printf(" + ");
+                    }
+                    printf("%dx^%d",temp->coeff,temp->exp);
+                }
+            }
+            void polymul(struct term *poly1,struct term *poly2){
+                int sum;
+                struct term *poly3=NULL,*temp1=poly1,*temp2=poly2,*temp3=poly3,*ptr=NULL;
+                while(temp1!=NULL){
+                    temp2=poly2;
+                while(temp2!=NULL){
+                poly3=insert(poly3,temp1->coeff*(temp2->coeff),temp1->exp+temp2->exp);
+                 temp2=temp2->link;   
+                }
+                temp1=temp1->link; 
+                temp2=poly2; 
+                }  
+                temp3=poly3;
+                while(temp3->link!=NULL){
+                    if(temp3->exp==temp3->link->exp){   
+                    temp3->coeff=temp3->coeff+temp3->link->coeff;
+                    ptr=temp3->link;
+                    temp3->link=temp3->link->link;
+                    free(ptr);
+                    } 
+                    else
+                    temp3=temp3->link;  
+                    }
+                
+                printf("Multiplication of Equations:");
+                print(poly3); 
+            }
+            
+            void main(){
+                int coe,ex;
+                int t1,t2,i=0;
+                struct term *poly1=NULL,*poly2=NULL,*poly3;
+                printf("Enter the number of terms:");
+                scanf("%d",&t1);
+                while(i<t1){
+                printf("Enter the coefficient of term: ");
+                scanf("%d",&coe);
+                printf("Enter the exponent of term: ");
+                scanf("%d",&ex);
+                poly1=insert(poly1,coe,ex);
+                i++;
+               }
+               print(poly1);
+               i=0;
+               printf("\nEnter the number of terms for second equation:");
+                scanf("%d",&t1);
+                while(i<t1){
+                printf("Enter the coefficient of term: ");
+                scanf("%d",&coe);
+                printf("Enter the exponent of term: ");
+                scanf("%d",&ex);
+                poly2=insert(poly2,coe,ex);
+                i++;
+               }
+               print(poly2);
+               polymul(poly1,poly2);
+            }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ gcc ll8.c 
+                
+                Admin@DESKTOP-7J5D1F0 MINGW64 /d/basic_c
+                $ ./a
+                Enter the number of terms:3
+                Enter the coefficient of term: 1
+                Enter the exponent of term: 2
+                Enter the coefficient of term: 2
+                Enter the exponent of term: 1
+                Enter the coefficient of term: 3
+                Enter the exponent of term: 4
+                3x^4 + 1x^2 + 2x^1
+                Enter the number of terms for second equation:3
+                Enter the coefficient of term: 2
+                Enter the exponent of term: 0
+                Enter the coefficient of term: 2 
+                Enter the exponent of term: 3
+                Enter the coefficient of term: 0
+                Enter the exponent of term: 3
+                2x^3 + 0x^3 + 2x^0Multiplication of Equations:6x^7 + 2x^5 + 10x^4 + 2x^2 + 4x^1
+                </pre>
+                
+                </div>
+                </body>
+                </html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Enter a sentence from user and the enter the word and replace that word by another word</h1>
+        <pre>
+        <code>
+            #include&lt;stdio.h>
+            int strcimp(char str[],char str2[]){
+                int i=0,flag=0;
+                while(str[i]!='\0'|| str2[i]!='\0'){
+                     if(str[i]!=str2[i]){
+                     flag=1;
+                     break;
+                     } 
+                     i++; 
+                } 
+                if(flag==0)
+                return 0;
+                else
+                return 1; 
+            }
+            void replace(char str[],char word[],char rep[]){
+               char tem[10];
+                 int i=0,j=0,k=0;
+                 while(str[i]!='\0'){
+                 if(str[i]!=' '){
+                     tem[j]=str[i];
+                     j++;
+                    }
+                 if(str[i]==' '||str[i]=='\0'){
+                  tem[j]='\0';
+                  if(strcimp(word,tem)==0)
+                  printf("%s ",rep);
+                  else
+                  printf("%s ",tem);
+                  j=0;
+                 }
+            i++;
+                 }
+            }
+            int main(){
+                char str[50],word[10],rep[10];
+                printf("Enter the string");
+                gets(str);
+                printf("Word you want to replace");
+                gets(word);
+                printf("word you want to replace with");
+                gets(rep);
+                replace(str,word,rep);
+            }
+               </code>
+               </pre></div>
+               <div class="output">
+                <h1 class="">OUTPUT</h1>
+                <pre>Enter the stringhii jii kii
+                    Word you want to replacepp
+                    word you want to replace withjii
+                    hii jii kii
+                    </pre>
+                    </div>
+                    </body>
+                    </html>
+                    

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" ></h1>
+        <pre>
+    <code>#include&lt;stdio.h>
+        #include&lt;string.h>
+        struct dict
+        {
+            char word[20];
+            char meaning[100];
+            struct dict *next, *pre;
+        };
+        struct dict *start = NULL, *search, *sl, *nn;
+        int count = 0;
+        
+        int compare(char *str1, char *str2)
+        {
+            int cmp;
+            cmp = strcmp(str1, str2);
+            return cmp;
+        }
+        
+        void create()
+        {
+            int cmp;
+            if (count > 10)
+            {
+                printf("No more words please\n");
+                return;
+            }
+        
+            if (start == NULL)
+            {
+                start = (struct dict *)malloc(sizeof(struct dict));
+        
+                printf("Enter the word:");
+                scanf("%s", start->word);
+                printf("Enter its meaning:");
+                scanf("%s", start->meaning);
+                start->next = NULL;
+                start->pre = NULL;
+                count++;
+            }
+            else
+            {
+        
+                nn = (struct dict *)malloc(sizeof(struct dict));
+        
+                printf("Enter the word:");
+                scanf("%s", nn->word);
+                printf("Enter its meaning:");
+                scanf("%s",nn->meaning);
+                search = start;
+                while (search->next != NULL)
+                {
+                    cmp = compare(search->word, nn->word);
+                    if (cmp == 0)
+                    {
+                        printf("Word is already present int the dictionary\n");
+                       return;
+                    } 
+                    search=search->next;
+                }
+                  search->next=nn;
+                  nn->pre=search;
+            }}
+           void delete(char *str)
+        {
+            if (start == NULL)
+            {
+                printf("Dictionary is empty!\n");
+                return;
+            }
+        
+            search = start;
+        
+            while (search != NULL)
+            {
+                if (compare(search->word, str) == 0)
+                {
+                    if (search->pre != NULL)
+                    {
+                        (search->pre)->next = search->next;
+                    }
+        
+                    if (search->next != NULL)
+                    {
+                        (search->next)->pre = search->pre;
+                    }
+        
+                    if (search == start)
+                    {
+                        start = search->next;
+                    }
+        
+                    free(search);
+                    count--;
+        
+                    printf(" %s is deleted !\n", str);
+                    return;
+                }
+        
+                search = search->next;
+            }
+        
+            printf("%s doesn't exist in the dictionary!\n", str);
+        }
+        
+        
+        
+        
+            void find(char *str)
+            {
+                if (start == NULL)
+                {
+                    printf("dictionary is empty! no words\n");
+                    return;
+                }
+                else
+                {
+                    search = start;
+                    while (search != NULL)
+                    {
+        
+                        if (!compare(search->word, str))
+                        {
+                            printf("the required word meaning is:\n");
+                            printf("%s:%s\n", search->word, search->meaning);
+        
+                            return;
+                        }
+                        search = search->next;
+                    }
+                    if (search == NULL)
+                    {
+                        printf(" the word you entered doesn't exist in the dictionary!");
+                    }
+                }
+            }
+        
+            int main()
+            {
+                int opt, res;
+                char del[20];
+        
+                while (1)
+                {
+                    printf("Choose an option from following:\n1.create\n2.delete\n3.Exit\n4.search\n");
+                    scanf("%d", &opt);
+        
+                    if (opt == 1)
+                    {
+                        create();
+                    }
+                    else if (opt == 2)
+                    {
+                        printf("Enter the word to delete:");
+                        scanf("%s", del);
+                        delete (del);
+                    }
+                    else if (opt == 3)
+                    {
+                        printf("exited!");
+                        break;
+                    }
+                    else if (opt == 4)
+                    {
+                        printf("Enter the word to search:");
+                        scanf("%s", del);
+                        find(del);
+                    }
+                    else
+                        printf("invalid input!");
+                }
+                return 0;
+            }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>Choose an option from following:
+                1.create
+                2.delete
+                3.Exit
+                4.search
+                1
+                Enter the word:adorable
+                Enter its meaning:beautiful
+                Choose an option from following:
+                1.create
+                2.delete
+                3.Exit
+                4.search
+                1
+                Enter the word:affection
+                Enter its meaning:love
+                Choose an option from following:
+                1.create
+                2.delete
+                3.Exit
+                4.search
+                4
+                Enter the word to search:beautiful
+                 the word you entered doesn't exist in the dictionary!
+                </pre>
+                
+                </div>
+                </body>
+                </html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Enter a Integer Array From the user,perform insertion sort algorithm through iteration.</h1>
+        <pre>
+        <code>#include&lt;stdio.h>
+            int main(){
+                int arr[5],i,j;
+                printf("Enter the five elements");
+                for(i=0;i&lt;5;i++){
+                    scanf("%d",&arr[i]);
+                }
+                printf("After insertion sort");
+                for(i=1;i&lt;5;i++){
+                    int current=arr[i];
+                    j=i-1;
+                    while(arr[j]>current&&j>=0){
+                        arr[j+1]=arr[j];
+                        j--;
+                    }
+                     arr[j+1]=current;
+                }
+                for(i=0;i&lt;5;i++){
+                    printf("%d ",arr[i]);
+                }
+            }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                Enter the five elements3 5 6 3 5
+                After insertion sort3 3 5 5 6 
+                </pre>
+                
+                </div>
+                </body>
+                </html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading">Enter the array from user and find maximum and minimum value.</h1>
+        <pre>
+            <code>
+                #include&lt;stdio.h>
+                int main(){
+                    int arr[5],i,max,min;
+                    printf("Enter the five elements ");
+                    for(i=0;i&lt;5;i++)
+                        scanf("%d",&arr[i]);
+                        max=arr[0];
+                    for(i=0;i&lt;5;i++)
+                    {
+                        if(max&lt;=arr[i])
+                        max=arr[i];
+                    }
+                    printf("maximum number = %d\n",max);
+                    min=arr[0];
+                    for(i=0;i&lt;5;i++)
+                    {
+                        if(min>arr[i])
+                       min=arr[i];
+                    }
+                    printf("minimum number = %d",min);  
+                } 
+                </code>
+                </pre>
+            </div>
+    <div class="output">
+        <h1 class="">OUTPUT</h1>
+        <pre>
+            Enter the five elements 9 8 7 6 5
+            maximum number = 9
+            minimum number = 5
+             </pre>
+            </div>
+            </body>
+            </html>

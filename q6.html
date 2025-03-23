@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Implement the operations of  circular queue in a string array.</h1>
+        <pre>
+         <code>//circular string
+            #include&lt;stdio.h>
+                    #include &lt;string.h>
+                    #define n 6
+                     int arr[n][10],front=-1,rear=-1,option,value;
+                     int enqueue(){
+                     if(rear==-1&&front==-1){
+                        rear=0;
+                        front=0;
+                        printf("Enter the value to be pushed:");
+                        scanf("%s",&arr[rear]);
+                        return rear;
+                            }
+                            else if((rear+1)%n==front){
+                                printf("Queue is full");
+                                return rear;
+                            }
+                            else{
+                                rear=(rear+1)%n;
+                            printf("Enter the value to be pushed:");
+                            scanf("%s",&arr[rear]);
+                                 return rear;
+                            }
+                        }
+                        int dequeue(){
+                        
+                            if(front==-1){
+                            printf("Underflow condition");
+                        }
+                        else if(front==rear){
+                            printf("Item %s is popped",arr[front]);
+                            front=rear=-1;
+                             return front;
+                        }
+                        else{
+                            printf("Item %s is popped",arr[front]);
+                            front=(front+1)%n;
+                            return front;
+                        }
+                        }
+                        void isEmpty(){
+                            if(front==-1){
+                                printf("Queue is empty\n");
+                            }
+                            else{
+                                printf("Queue is not empty\n");
+                            }
+                        }
+                        void isFull(){
+                            if((rear+1)%n==front){
+                                printf("Queue is full\n");
+                            }
+                            else{
+                                printf("Queue is not full\n");
+                            }
+                        }
+                        void peek(){
+                            printf("%s\n",arr[rear]);
+                        }
+                        int main()
+                        {
+                            
+                            while(1){
+                        printf("Enter your choice:\n1.Push\n2.Pop\n
+                        3.Exit\n4.isEmpty\n5.isFull\n6.peek\n");
+                        scanf("%d",&option);
+                        switch(option){
+                            case 1:
+                        rear = enqueue(value);
+                            
+                        break;
+                        case 2:
+                            front = dequeue();
+                        
+                        break;
+                        case 3:
+                        exit(0);
+                        break;
+                        case 4:
+                        isEmpty();
+                        break;
+                        case 5:
+                        isFull();
+                        break;
+                        case 6:
+                        peek();
+                        break;
+                        default:
+                        printf("Invalid choice\n");
+                        }}
+                        
+                        return 0;
+                        }
+                    
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                Enter your choice:
+                1.Push
+                2.Pop
+                3.Exit
+                4.isEmpty
+                5.isFull
+                6.peek
+                1
+                Enter the value to be pushed:hllo
+                Enter your choice:
+                1.Push
+                2.Pop
+                3.Exit
+                4.isEmpty
+                5.isFull
+                6.peek
+                1
+                Enter the value to be pushed:hii
+                Enter your choice:
+                1.Push
+                2.Pop
+                3.Exit
+                4.isEmpty
+                5.isFull
+                6.peek
+                2
+                Item hllo is poppedEnter your choice:
+                1.Push
+                2.Pop
+                3.Exit
+                4.isEmpty
+                5.isFull
+                6.peek
+                6
+                hii
+                Enter your choice:
+                1.Push
+                2.Pop
+                3.Exit
+                4.isEmpty
+                5.isFull
+                6.peek
+                3
+                </pre>
+                
+                </div>
+                </body>
+                </html>

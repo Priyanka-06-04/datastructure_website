@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" ></h1>
+        <pre>
+        <code>//polynomail expression addition
+            #include<stdio.h>
+            #include<stdlib.h>
+            struct term{
+                int coeff;
+                int exp;
+                struct term *link;
+            };
+            typedef struct term term;
+            struct term* insert(term* poly,int coe,int ex){
+                struct term *nn,*temp;
+                nn= (struct term*)malloc(sizeof(struct term));
+                nn->coeff=coe;
+                nn->exp=ex;
+                if(poly==NULL||ex>poly->exp){
+                    nn->link=poly;
+                    poly=nn;
+                }
+                else{
+                    temp=poly;
+                    while(temp->link!=NULL&&temp->link->exp>=ex){
+                        temp=temp->link;
+                    }
+                    nn->link=temp->link;
+                    temp->link=nn;
+                }
+                return poly;
+            }
+            void print(struct term *poly){
+                struct term *nn,*temp;
+                if(poly==NULL)
+                printf("No polynomail exist");
+                else{
+                    temp=poly;
+                    while(temp->link!=NULL){
+                    printf("%dx^%d",temp->coeff,temp->exp);
+                    temp=temp->link;
+                    printf("+");
+                    }
+                    printf("%dx^%d",temp->coeff,temp->exp);
+                }
+            }
+            void polyadd(struct term *poly1,struct term *poly2){
+                struct term *poly3=NULL,*temp1=poly1,*temp2=poly2;
+                while(temp1!=NULL && temp2!=NULL){
+                if(temp1->exp==temp2->exp){
+                    poly3=insert(poly3,temp1->coeff+temp2->coeff,temp1->exp);
+                    temp1=temp1->link;
+                    temp2=temp2->link;
+                }
+                else if(temp1->exp>temp2->exp){
+                    poly3=insert(poly3,temp1->coeff,temp1->exp);
+                    temp1=temp1->link;
+                }
+                else if(temp1->exp<temp2->exp){
+                    poly3=insert(poly3,temp2->coeff,temp2->exp);
+                    temp2=temp2->link;
+                }
+                }
+                while(temp1!=NULL){
+                    poly3=insert(poly3,temp1->coeff,temp1->exp);
+                    temp1=temp1->link;
+                }
+                while(temp2!=NULL){
+                    poly3=insert(poly3,temp2->coeff,temp2->exp);
+                    temp2=temp2->link;
+                }
+                printf("\nAddition of equation = ");
+                 print(poly3);
+            }
+            void main(){
+                int coe,ex;
+                int t1,t2,i=0;
+                struct term *poly1=NULL,*poly2=NULL,*poly3;
+                printf("Enter the number of terms:");
+                scanf("%d",&t1);
+                while(i<t1){
+                printf("Enter the coefficient of term: ");
+                scanf("%d",&coe);
+                printf("Enter the exponent of term: ");
+                scanf("%d",&ex);
+                poly1=insert(poly1,coe,ex);
+                i++;
+               }
+               print(poly1);
+               //for second polynomail;
+               i=0;
+               printf("\nEnter the number of terms for second equation:");
+                scanf("%d",&t1);
+                while(i<t1){
+                printf("Enter the coefficient of term: ");
+                scanf("%d",&coe);
+                printf("Enter the exponent of term: ");
+                scanf("%d",&ex);
+                poly2=insert(poly2,coe,ex);
+                i++;
+               }
+               print(poly2);
+               polyadd(poly1,poly2);
+               
+            }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                Enter the number of terms:3
+                Enter the coefficient of term: 1
+                Enter the exponent of term: 2
+                Enter the coefficient of term: 3
+                Enter the exponent of term: 1
+                Enter the coefficient of term: 5
+                Enter the exponent of term: 3
+                5x^3+1x^2+3x^1
+                Enter the number of terms for second equation:4
+                Enter the coefficient of term: 2
+                Enter the exponent of term: 3
+                Enter the coefficient of term: 6
+                Enter the exponent of term: 2
+                Enter the coefficient of term: 89
+                Enter the exponent of term: 1
+                Enter the coefficient of term: 55
+                Enter the exponent of term: 4
+                55x^4+2x^3+6x^2+89x^1
+                Addition of equation = 55x^4+7x^3+7x^2+92x^1
+
+                
+                </pre>
+                
+                </div>
+                </body>
+                </html>

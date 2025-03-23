@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" >Count the number of charcters,words,spaces and lines</h1>
+        <pre>
+            <code>//Count the number of charcters,words,spaces and lines
+                #includ&lt;stdio.h>
+                int space();
+                int line();
+                int word();
+                char str[100];
+                    int i=0,s=0,l=0,ch=0,w=0;
+                void main(){
+                    printf("enter the string: ");
+                    gets(str);
+                    while(str[i]!='\0'){
+                        ch++; 
+                        s=space();
+                        l=line();
+                        w=word();
+                         i++;
+                    }
+                    printf(" space = %d",s);
+                    printf(" line = %d",l);
+                    printf(" word = %d",w);
+                    printf(" character = %d",ch);
+                    }
+                    int space(){
+                         if(str[i]==' ')
+                            s++;
+                    return s;
+                    }
+                    int line(){
+                         if(str[i]=='.')
+                        l++;
+                        return l;
+                    }
+                    int word(){
+                        if(i==0 || str[i]==' '&&str[i+1]!=' '|| str[i]=='.'&&str[i+1]!='\0')
+                         w++;
+                         return w;     
+                    }
+               </code>
+               </pre></div>
+               <div class="output">
+                <h1 class="">OUTPUT</h1>
+                <pre>
+                    enter the string: Good Morning.Have a nice day.
+                     space = 4 line = 2 word = 6 character = 29
+                    </pre>
+                    </div>
+                    </body>
+                    </html>
+                    

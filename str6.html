@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" id="prgstr3">Compare the string</h1>
+        <pre>
+            <code>
+                #include&lt;stdio.h>
+                    int strcmpi(char*,char*);
+                    int main(){
+                        char str[10],str2[10];
+                        int cmp;
+                        printf("enter the name:");
+                        gets(str);
+                        printf("enter the name:");
+                        gets(str2);
+                        cmp=strcmpi(str,str2);
+                        if(cmp==0)
+                        printf("Same");
+                        else 
+                        printf("Both are not same");  
+                        
+                    }
+                    int strcmpi(char *str,char *str2){
+                        int i=0,flag=0;
+                        while(str[i]!='\0'|| str2[i]!='\0'){
+                             if(str[i]!=str2[i]){
+                             flag=1;
+                             break;
+                             } 
+                             i++; 
+                        } 
+                        if(flag==0)
+                        return 0;
+                        else
+                        return 1;      
+                    }
+                </code>
+                </pre>
+                </div>
+                <div class="output">
+                    <h1 class="">OUTPUT</h1>
+                    <pre>
+                        
+                        enter the name:hii kii
+                        enter the name:hii kii
+                        Same
+                       
+                        enter the name:this is not okk
+                        enter the name:this is
+                        Both are not same
+                        </pre>
+                        </div>
+</body>
+</html>

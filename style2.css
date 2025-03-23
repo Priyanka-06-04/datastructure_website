@@ -1,0 +1,34 @@
+.down{
+    font-size:30px;
+    color:rgb(13, 13, 13);
+}
+.btn{
+    background-color: rgb(176, 107, 241);
+    padding: 20px;
+    margin-top: 2px;
+}
+.bg{
+    background-image:url("dsa.png");
+    display:flex;
+    justify-content: space-around; 
+    background-repeat: no-repeat;
+    background: cover;
+}
+.details{
+    font-size: 20px;
+    flex-direction: row;
+    justify-content: flex-end;
+    color:rgb(13, 13, 13) ;
+}
+.first{
+    font-size: 120px;
+    color: rgb(37, 28, 45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 170px;
+    padding-left: 400px;   
+}
+a{
+    text-decoration: none;
+}

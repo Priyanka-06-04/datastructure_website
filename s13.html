@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading">Enter a string Array From the user,perform bubble sort algorithm through iteration.</h1>
+        <pre>
+        <code> //bubble sort storing string
+            #include &lt;stdio.h>
+               #include &lt;string.h>
+               int main()
+               {
+                   int n = 5, i;
+               
+                   char str[5][20],temp[20];
+               
+                   for (i = 0; i &lt; n; i++)
+                   {
+                       printf("Enter string %d: ", i + 1);
+                       gets(str[i]);
+                   }
+               
+                   for (int i = 1; i &lt; 5; i++)
+                   {
+                       for (int j = 0; j &lt; 4; j++)
+                       {
+                           if (strcmp(str[j + 1], str[j] )&lt; 0)
+                           {
+                               strcpy(temp, str[j]);
+                               strcpy(str[j], str[j+1]);
+                               strcpy(str[j+1], temp);
+                           }
+                       }}
+                       for (int i = 0; i &lt; 5; i++)
+                       {
+                           printf("%s\t", str[i]);
+                       }
+                       return 0;
+                   }   
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>Enter string 1: err
+                Enter string 2: avb
+                Enter string 3: nhu
+                Enter string 4: bxc
+                Enter string 5: ji
+                avb     bxc     err     ji      nhu
+                </pre>
+                
+                </div>
+                </body>
+                </html>

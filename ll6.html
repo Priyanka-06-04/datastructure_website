@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="program" target="rightframe">
+        <h1 class="heading" ></h1>
+        <pre>
+        <code>#include &lt;stdio.h>
+            #include &lt;stdlib.h>
+            #include&lt;string.h>
+            
+            struct node
+            {
+                char data[30];
+                struct node *next;
+            };
+            struct node *start = NULL, *search, *pre,*last;
+            
+            void print_list()
+            {
+                struct node *ptr;
+                int k;
+                ptr = start;
+                if (ptr == NULL)
+                    printf("underflow -empty list\n");
+                else{
+                    printf("the list is:\n");
+                    printf("%s\t", ptr->data);
+                    
+                while (ptr != last)
+                {   ptr = ptr->next;
+                    printf("%s\t", ptr->data);
+                  
+                }
+            }}
+            
+            int ins_at_beg(int count)
+            {
+                struct node *nn;
+                if (start == NULL)
+                {
+                    start = (struct node *)malloc(sizeof(struct node));
+                    printf("enter string to be inserted:");
+                    scanf("%s", start->data);
+                    start->next = start;
+                    last=start;
+                    printf("%s\n", start->data);
+                    count++;
+                }
+                else
+                {
+                  nn = (struct node *)malloc(sizeof(struct node));
+                    if (nn != NULL)
+                    {
+                        printf("enter string to be inserted:");
+                        scanf("%s", nn->data);
+                        nn->next = start;
+                        printf("%s\n", nn->data);
+                        start = nn;
+                        count++;
+                    }
+                }
+                return count;
+            }
+            
+            int ins_at_end(int count)
+            {
+                struct node *nn;
+                search = start;
+                if (start == NULL)
+                {
+                    start = (struct node *)malloc(sizeof(struct node));
+                    printf("enter string to be inserted:");
+                    scanf("%s", start->data);
+                    start->next = start;
+                    printf("%s\n", start->data);
+                    last = start;
+                    search=start;
+                    count++;
+                }
+            
+                else
+                {
+                   
+                    nn = (struct node *)malloc(sizeof(struct node));
+                    if (nn != NULL)
+                    {
+                        printf("enter string to be inserted:");
+                        scanf("%s", nn->data);
+                        nn->next = start;
+                        last->next = nn;
+                        printf("%s\n", nn->data);
+                        last=nn;
+                        count++;
+                    }
+                }
+                return count;
+            }
+            
+            int ins_at_loc(int count, int pos)
+            {
+                int i;
+                struct node *nn;
+                nn = (struct node *)malloc(sizeof(struct node));
+                search = start;
+                for (i = 1; i &lt; pos - 1; i++)
+                {
+                    search = search->next;
+                }
+                printf("enter string to be inserted:");
+                scanf("%s", nn->data);
+                nn->next = search->next;
+                search->next = nn;
+                count++;
+                printf("%s\n", nn->data);
+            
+                return count;
+            }
+            
+            int del_at_beg(int count)
+            {
+                if (start == NULL)
+                {
+                    printf("Underflow condition\n");
+                }
+                else if (start->next == NULL)
+                {
+                    free(start);
+                }
+                else
+                {
+                    search = start;
+                    start = start->next;
+                    free(search);
+                    count--;
+                    return count;
+                }
+            }
+            
+            int del_at_end(int count)
+            {
+                search = start;
+               if (start == NULL)
+                {
+                    printf("Underflow condition\n");
+                }
+               else if (search->next == start)
+                {
+                    free(search);
+                    start = NULL;
+                    last=NULL;
+                    count--;
+                }
+                else
+                {
+            
+                while (search->next != last)
+                    {
+                        search = search->next;
+                    }
+                    pre =last;
+                    last=search;
+                    free(pre);
+                    count--;
+                }
+                return count;
+            }
+            
+            int del_from_loc(int count, int pos)
+            {
+                struct node *temp;
+                int i;
+                search = start;
+                for (i = 1; i &lt; pos - 1; i++)
+                {
+                    search = search->next;
+                }
+                temp = search->next;
+                search->next = temp->next;
+                free(temp);
+                return (count--);
+            }
+            
+            void empty(){
+                if(start==NULL)
+                printf("linked list is empty.");
+                else
+                printf("not empty");
+            }
+            
+            void find(char* val){
+                 search = start;
+               if (start == NULL)
+                {
+                    printf("Underflow condition\n");
+                }
+               else{
+                   while(search!=last){
+                   if(!strcmp(search->data,val)){
+                       printf("value found!");
+                       return;
+                   }
+                    search=search->next;
+               }
+               if(search==last){
+                   if(!strcmp(search->data,val)){
+                       printf("value found!");
+                       return;}
+                  else
+                     printf("value not found!");
+               }
+            }}
+            
+            int main()
+            {
+                int opt = 0, count = 0, num,  loc;
+                char val[30];
+                while (1)
+                {
+                    printf("\nchoose option from below\n1.insert node at beginning\n2.insert at end\n3.insert at a particular location\n4.exit\n5.print list\n 6.delete at beginning\n7.Deletion at end\n8.Deletion at a particular location\n9. search\n10. is empty\n");
+                    scanf("%d", &opt);
+                    if (opt == 1)
+                    {
+            
+                        count = ins_at_beg(count);
+                        printf("inserted at beginning \n");
+                    }
+            
+                  else if (opt == 2)
+                    {
+            
+                        count = ins_at_end(count);
+                        printf("inserted at end \n");
+                    }
+            
+                    else if (opt == 3)
+                    {
+                        printf("want to insert after a particular number or location");
+                        scanf("%d", &loc);
+                        if (loc > count + 1)
+                        {
+                            printf("invalid location");
+                        }
+                        else
+                        {
+                            count = ins_at_loc(count, loc);
+                            printf("inserted in the list \n");
+                        }
+                    }
+            
+                    else if (opt == 4)
+                    {
+                        printf("exited! \n");
+                        break;
+                    }
+            
+                    else if (opt == 5)
+                    {
+                        print_list();
+                    }
+            
+                    else if (opt == 6)
+                    {
+                        count = del_at_beg(count);
+                        printf("deleted from beginning \n");
+                    }
+            
+                    else if (opt == 7)
+                    {
+                        count = del_at_end(count);
+                        printf("deleted from the end\n");
+                    }
+                    else if (opt == 8)
+                    {
+                        printf("want to delete from a particular location");
+                        scanf("%d", &loc);
+                        if (loc > count + 1)
+                        {
+                            printf("invalid location");
+                        }
+                        else
+                        {
+                            count = del_from_loc(count, loc);
+                            printf("deleted from the list\n");
+                        }
+                    }
+                    
+                     else if (opt == 9)
+                    {
+                        printf("enter string to search:");
+                        scanf("%s",val);
+                        find(val);
+                    } 
+                    
+                    else if (opt == 10)
+                    {
+                        empty();
+                    }
+            
+                    else
+                        printf("Invalid condition\n");
+                }
+                return 0;
+            }
+
+            </code>
+        </pre>
+    </div>
+        <div class="output">
+            <h1 class="">OUTPUT</h1>
+            <pre>
+                choose option from below
+                1.insert node at beginning
+                2.insert at end
+                3.insert at a particular location  
+                4.exit
+                5.print list
+                 6.delete at beginning
+                7.Deletion at end
+                8.Deletion at a particular location
+                9. search
+                10. is empty
+                1
+                enter string to be inserted:abc
+                abc
+                inserted at beginning
+                
+                choose option from below
+                1.insert node at beginning
+                2.insert at end
+                3.insert at a particular location
+                4.exit
+                5.print list
+                 6.delete at beginning
+                7.Deletion at end
+                8.Deletion at a particular location
+                9. search
+                10. is empty
+                1
+                enter string to be inserted:lkm
+                lkm
+                inserted at beginning
+                
+                choose option from below
+                1.insert node at beginning
+                2.insert at end
+                3.insert at a particular location
+                4.exit
+                5.print list
+                 6.delete at beginning
+                7.Deletion at end
+                8.Deletion at a particular location
+                9. search
+                10. is empty
+                2
+                enter string to be inserted:kdmd
+                kdmd
+                inserted at end
+                
+                choose option from below
+                1.insert node at beginning
+                2.insert at end
+                3.insert at a particular location
+                4.exit
+                5.print list
+                 6.delete at beginning
+                7.Deletion at end
+                8.Deletion at a particular location
+                9. search
+                10. is empty
+                5
+                the list is:
+                lkm     abc     kdmd
+                choose option from below
+                1.insert node at beginning
+                2.insert at end
+                3.insert at a particular location
+                4.exit
+                5.print list
+                 6.delete at beginning
+                7.Deletion at end
+                8.Deletion at a particular location
+                9. search
+                10. is empty
+                9
+                enter string to search:abc
+                value found!
+                choose option from below
+                1.insert node at beginning
+                2.insert at end
+                3.insert at a particular location
+                4.exit
+                5.print list
+                 6.delete at beginning
+                7.Deletion at end
+                8.Deletion at a particular location
+                9. search
+                10. is empty
+                4
+                exited!
+                </pre>
+                
+                </div>
+                </body>
+                </html>
